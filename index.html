@@ -3,153 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | Elite Store</title>
+    <title>Ahmad Autos | Elite 3D Dashboard</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;900&display=swap');
 
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; transition: background-color 0.5s, color 0.5s; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; transition: background-color 0.5s; }
         .font-brand { font-family: 'Orbitron', sans-serif; }
 
-        /* Floating WhatsApp Bubble Animation */
-        .whatsapp-bubble {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            animation: pulse-green 2s infinite;
-        }
-
-        @keyframes pulse-green {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-        }
-
         .hero-banner {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(15,23,42,1)), 
+            height: 65vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.9)), 
                         url('https://images.pexels.com/photos/11192307/pexels-photo-11192307.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 5px solid #dc2626;
         }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 2rem;
-        }
-        
-        /* White Mode Tweaks */
-        .light .glass-card {
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 2.5rem;
         }
 
         .red-glow { text-shadow: 0 0 20px rgba(220, 38, 38, 0.8); }
 
         .owner-frame {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             border: 6px solid #dc2626;
             padding: 5px;
             background: white;
-            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.4);
             border-radius: 50%;
             overflow: hidden;
         }
+
+        .owner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .tilt-card { transition: transform 0.5s ease; transform-style: preserve-3d; }
+        .tilt-card:hover { transform: translateY(-15px) rotateX(5deg); }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
 
-    <a href="https://wa.me/923159598830" target="_blank" class="whatsapp-bubble bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <nav class="fixed w-full z-[100] bg-white/10 dark:bg-slate-900/20 backdrop-blur-lg border-b border-white/10 p-4">
+    <nav class="fixed w-full z-[100] bg-white/10 backdrop-blur-lg border-b border-white/10 p-4">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-brand text-red-600 italic red-glow">AHMAD AUTOS</h1>
-            
-            <button onclick="toggleTheme()" class="flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-full font-black text-[10px] uppercase tracking-widest transition-all hover:scale-105">
-                <i id="theme-icon" class="fa-solid fa-sun"></i>
-                <span id="theme-text">White Mode</span>
+            <h1 class="text-2xl font-brand text-red-600 italic red-glow">AHMAD AUTOS</h1>
+            <button onclick="toggleTheme()" class="bg-red-600 text-white px-4 py-2 rounded-xl font-bold uppercase text-[10px] tracking-widest">
+                Switch Theme
             </button>
         </div>
     </nav>
 
     <header class="hero-banner">
-        <div class="text-center" data-aos="zoom-out">
-            <h2 class="text-6xl md:text-8xl font-brand italic text-white red-glow mb-4 uppercase">AHMAD<br><span class="text-red-600">AUTOS</span></h2>
-            <p class="text-gray-300 font-bold tracking-[0.3em] uppercase text-xs">Serving Charsadda Since 2018</p>
+        <div class="text-center" data-aos="zoom-out" data-aos-duration="1500">
+            <h2 class="text-6xl md:text-9xl font-brand italic text-white red-glow mb-4 uppercase">AHMAD<br><span class="text-red-600">AUTOS</span></h2>
+            <div class="inline-block bg-red-600 text-white px-6 py-2 rounded-full font-black text-xs uppercase tracking-[0.3em]">
+                Authentic Parts Since 2018
+            </div>
         </div>
     </header>
 
-    <section class="py-16 container mx-auto px-6">
-        <div class="max-w-5xl mx-auto glass-card overflow-hidden shadow-2xl" data-aos="fade-up">
-            <img src="https://r.jina.ai/i/03a74934a34b46c69f0073539828ed29" alt="Store Details" class="w-full h-auto">
-        </div>
-    </section>
-
-    <section class="py-20 bg-slate-100 dark:bg-slate-900/40">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            
-            <div class="flex flex-col items-center md:items-start" data-aos="fade-right">
-                <div class="owner-frame mb-6">
-                    <img src="https://r.jina.ai/i/6c13cc793f024c75837da7a097c6640f" alt="Ahmad Ali" class="w-full h-full object-cover">
+    <section class="py-24 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="glass-card p-4 tilt-card" data-aos="fade-up">
+                <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
+                    <img src="https://images.pexels.com/photos/11890966/pexels-photo-11890966.jpeg" class="w-full h-full object-cover">
                 </div>
-                <h4 class="text-4xl font-brand italic red-glow uppercase mb-2">Ahmad Ali</h4>
-                <p class="text-red-600 font-black tracking-widest uppercase text-[10px] mb-8">Business Owner Since 2018</p>
-                
-                <div class="space-y-4 font-bold text-sm italic uppercase">
-                    <p><i class="fa-solid fa-location-dot text-red-600 mr-2"></i> Gul Abad Pul, Charsadda, KP</p>
-                    <p><i class="fa-solid fa-phone text-green-600 mr-2"></i> +92 315 9598830</p>
+                <div class="text-center pb-4">
+                    <h3 class="text-2xl font-brand italic text-red-600 mb-2">Engine</h3>
+                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Precision Components</p>
+                    <a href="https://wa.me/923159598830" class="bg-slate-900 dark:bg-red-600 text-white px-8 py-3 rounded-2xl font-black text-xs block uppercase">Inquire Now</a>
+                </div>
+            </div>
+            
+            <div class="glass-card p-4 tilt-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
+                    <img src="https://images.pexels.com/photos/37609825/pexels-photo-37609825.jpeg" class="w-full h-full object-cover">
+                </div>
+                <div class="text-center pb-4">
+                    <h3 class="text-2xl font-brand italic text-red-600 mb-2">Drive</h3>
+                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Chain Sprocket Kits</p>
+                    <a href="https://wa.me/923159598830" class="bg-slate-900 dark:bg-red-600 text-white px-8 py-3 rounded-2xl font-black text-xs block uppercase">Inquire Now</a>
                 </div>
             </div>
 
-            <div class="h-[400px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800" data-aos="zoom-in">
+            <div class="glass-card p-4 tilt-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
+                    <img src="https://images.pexels.com/photos/12000096/pexels-photo-12000096.jpeg" class="w-full h-full object-cover">
+                </div>
+                <div class="text-center pb-4">
+                    <h3 class="text-2xl font-brand italic text-red-600 mb-2">Lights</h3>
+                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Premium LED Units</p>
+                    <a href="https://wa.me/923159598830" class="bg-slate-900 dark:bg-red-600 text-white px-8 py-3 rounded-2xl font-black text-xs block uppercase">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-200 dark:bg-slate-900/40">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            
+            <div class="flex flex-col items-center md:items-start" data-aos="fade-right">
+                <div class="owner-frame mb-8">
+                    <img src="https://r.jina.ai/i/6c13cc793f024c75837da7a097c6640f" alt="Ahmad Ali" class="owner-img">
+                </div>
+                <h4 class="text-4xl font-brand italic red-glow mb-2 uppercase">Ahmad Ali</h4>
+                <p class="text-red-600 font-black tracking-widest uppercase text-xs mb-8">Proprietor | Specialist Since 2018</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-md"><i class="fa-solid fa-location-dot text-red-600"></i></div>
+                        <span class="font-bold uppercase text-sm italic">Gul Abad Pul, Charsadda, KP</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-md"><i class="fa-solid fa-phone text-green-600"></i></div>
+                        <span class="font-bold uppercase text-sm italic">+92 315 9598830</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-[450px] rounded-[3.5rem] overflow-hidden shadow-3xl border-8 border-white dark:border-slate-800" data-aos="zoom-in">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105804.8197177546!2d71.64448558488344!3d34.14882103595537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d92376997491cf%3A0xc391264c92976865!2sCharsadda%2C%20Khyber%20Pakhtunkhwa!5e0!3m2!1sen!2spk!4v1716380000000!5m2!1sen!2spk" class="w-full h-full grayscale dark:invert" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center opacity-50 text-[10px] font-black uppercase tracking-[0.5em]">
-        © 2026 Ahmad Autos | Quality Guaranteed
+    <footer class="py-12 text-center border-t border-white/5">
+        <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.6em]">
+            © 2026 Ahmad Autos Charsadda. Quality Guaranteed Since 2018.
+        </p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000 });
+        AOS.init({ duration: 1000, once: false });
 
         function toggleTheme() {
-            const html = document.getElementById('html-tag');
-            const icon = document.getElementById('theme-icon');
-            const text = document.getElementById('theme-text');
-            
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                icon.classList.replace('fa-sun', 'fa-moon');
-                text.innerText = "Dark Mode";
-            } else {
-                html.classList.remove('light');
-                html.classList.add('dark');
-                icon.classList.replace('fa-moon', 'fa-sun');
-                text.innerText = "White Mode";
-            }
+            document.getElementById('html-tag').classList.toggle('dark');
         }
     </script>
 </body>
 </html>
-

@@ -1,143 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-tag" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | Charsadda - Premium Bike Parts</title>
+    <title>Ahmad Autos | Premium Parts</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
     <style>
-        /* 3D Animated Background */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .animated-overlay {
-            background: linear-gradient(-45deg, rgba(30, 58, 138, 0.9), rgba(30, 64, 175, 0.7), rgba(17, 24, 39, 0.9));
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-        }
-        .hero-img {
-            background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1600&q=80');
+        .hero-landscape {
+            height: 60vh;
+            background-image: linear-gradient(rgba(30, 58, 138, 0.7), rgba(17, 24, 39, 0.8)), 
+                              url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80&h=800');
             background-size: cover;
             background-position: center;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-        .glass-card:hover { transform: translateY(-10px); }
-        html { scroll-behavior: smooth; }
+        .dark .card-glass { background: #1f2937; border-color: #374151; }
+        .card-glass { transition: all 0.3s ease; }
+        .card-glass:hover { transform: scale(1.03); }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-slate-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <a href="https://wa.me/923159598830" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all">
+    <button onclick="toggleTheme()" class="fixed top-20 right-6 z-[100] bg-blue-600 text-white p-3 rounded-full shadow-2xl">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+    </button>
+
+    <a href="https://wa.me/923159598830" class="fixed bottom-6 right-6 z-[100] bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-black text-blue-800 italic">AHMAD <span class="text-blue-600">AUTOS</span></h1>
-            <div class="hidden md:flex space-x-6 font-bold text-gray-700 uppercase text-sm">
-                <a href="#parts" class="hover:text-blue-800">Inventory</a>
-                <a href="#location" class="hover:text-blue-800">Find Us</a>
-            </div>
-            <div class="text-blue-800 font-bold hidden sm:block">
-                <i class="fa-solid fa-clock mr-1"></i> 8:00 AM - 8:00 PM
+            <h1 class="text-2xl font-black text-blue-700 italic uppercase">Ahmad Autos</h1>
+            <div class="text-sm font-bold flex items-center gap-4">
+                <span class="text-blue-600 hidden md:block uppercase"><i class="fa-solid fa-clock"></i> 8 AM - 8 PM</span>
             </div>
         </div>
     </nav>
 
-    <section class="relative h-[80vh] flex items-center justify-center hero-img overflow-hidden">
-        <div class="absolute inset-0 animated-overlay"></div>
-        <div class="relative text-center text-white px-4">
-            <h1 class="text-6xl md:text-8xl font-black mb-4 drop-shadow-2xl">AHMAD AUTOS</h1>
-            <p class="text-xl md:text-3xl font-semibold mb-8 tracking-widest uppercase italic">Genuine Bike Parts & Accessories</p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-4 font-bold">
-                <span class="bg-white text-blue-900 px-8 py-3 rounded-xl shadow-lg border-b-4 border-blue-900">
-                    <i class="fa-solid fa-location-dot mr-2 text-red-600"></i> Gul Abad Pul, Charsadda
-                </span>
-                <span class="bg-blue-600 text-white px-8 py-3 rounded-xl shadow-lg">
-                    <i class="fa-solid fa-clock mr-2"></i> 08:00 AM TO 08:00 PM
-                </span>
+    <header class="hero-landscape flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-black mb-2 tracking-tighter uppercase italic drop-shadow-lg">Ahmad Autos</h1>
+            <p class="text-lg md:text-2xl font-bold text-blue-300 uppercase tracking-widest mb-6">Your Trusted Partner for Genuine Bike Parts</p>
+            <div class="bg-white/10 backdrop-blur-md px-6 py-2 rounded-lg inline-block border border-white/20">
+                <i class="fa-solid fa-map-location-dot mr-2 text-red-500"></i> Gul Abad Pul, Charsadda
             </div>
         </div>
-    </section>
+    </header>
 
-    <section id="parts" class="py-20 container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black text-blue-900 uppercase">Main Inventory</h2>
-            <div class="h-1.5 w-24 bg-blue-600 mx-auto mt-2"></div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="glass-card rounded-[30px] shadow-xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1590566107427-14457ff41871?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
-                <div class="p-8 text-center">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2 italic">Engine Parts</h3>
-                    <p class="text-gray-600 mb-6 font-medium uppercase text-sm">CD70 / CG125 Pistons, Valves & Gears</p>
-                    <a href="https://wa.me/923159598830" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-bold w-full hover:bg-blue-800 transition">ORDER ON WHATSAPP</a>
+    <main class="py-16 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="card-glass bg-white rounded-2xl shadow-xl overflow-hidden border">
+                <img src="https://images.unsplash.com/photo-1590566107427-14457ff41871?auto=format&fit=crop&w=600&q=80" 
+                     alt="Engine Parts" class="w-full h-56 object-cover bg-gray-200" onerror="this.src='https://placehold.co/600x400?text=Engine+Parts'">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-black text-blue-700 uppercase mb-2">Engine Parts</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">CD70, CG125 Pistons & Gears</p>
+                    <a href="https://wa.me/923159598830" class="block bg-blue-700 text-white py-3 rounded-xl font-bold">Check Price</a>
                 </div>
             </div>
 
-            <div class="glass-card rounded-[30px] shadow-xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
-                <div class="p-8 text-center">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2 italic">Chain & Grari Set</h3>
-                    <p class="text-gray-600 mb-6 font-medium uppercase text-sm">Heavy Duty Sprockets & Drive Chains</p>
-                    <a href="https://wa.me/923159598830" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-bold w-full hover:bg-blue-800 transition">ORDER ON WHATSAPP</a>
+            <div class="card-glass bg-white rounded-2xl shadow-xl overflow-hidden border">
+                <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=600&q=80" 
+                     alt="Chain Kit" class="w-full h-56 object-cover bg-gray-200" onerror="this.src='https://placehold.co/600x400?text=Chain+Sprocket'">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-black text-blue-700 uppercase mb-2">Chain & Grari Set</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Complete High-Quality Sprocket Kits</p>
+                    <a href="https://wa.me/923159598830" class="block bg-blue-700 text-white py-3 rounded-xl font-bold">Check Price</a>
                 </div>
             </div>
 
-            <div class="glass-card rounded-[30px] shadow-xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1547617304-747d76a7493a?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
-                <div class="p-8 text-center">
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2 italic">Lights & Wiring</h3>
-                    <p class="text-gray-600 mb-6 font-medium uppercase text-sm">LED Headlights, Indicators & CDIs</p>
-                    <a href="https://wa.me/923159598830" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-bold w-full hover:bg-blue-800 transition">ORDER ON WHATSAPP</a>
+            <div class="card-glass bg-white rounded-2xl shadow-xl overflow-hidden border">
+                <img src="https://images.unsplash.com/photo-1547617304-747d76a7493a?auto=format&fit=crop&w=600&q=80" 
+                     alt="Electrical Parts" class="w-full h-56 object-cover bg-gray-200" onerror="this.src='https://placehold.co/600x400?text=Lights+Wiring'">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-black text-blue-700 uppercase mb-2">Lights & Wiring</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Genuine LED Lights & Full Wiring</p>
+                    <a href="https://wa.me/923159598830" class="block bg-blue-700 text-white py-3 rounded-xl font-bold">Check Price</a>
                 </div>
             </div>
+
         </div>
-    </section>
+    </main>
 
-    <section id="location" class="py-20 bg-blue-900 text-white">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-4xl font-black mb-6">LOCATION & TIMING</h2>
-                <p class="text-xl mb-10 text-blue-100 italic font-medium underline decoration-red-500 decoration-4">Gul Abad Pul, Charsadda, KPK, Pakistan</p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-center bg-white/10 p-6 rounded-2xl">
-                        <i class="fa-solid fa-clock text-4xl mr-6 text-blue-300"></i>
-                        <div>
-                            <p class="text-sm font-bold uppercase tracking-widest opacity-60">Opening Hours</p>
-                            <p class="text-2xl font-black">08:00 AM - 08:00 PM</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center bg-white/10 p-6 rounded-2xl">
-                        <i class="fa-solid fa-phone-volume text-4xl mr-6 text-green-400"></i>
-                        <div>
-                            <p class="text-sm font-bold uppercase tracking-widest opacity-60">WhatsApp Order</p>
-                            <p class="text-2xl font-black">+92 315 9598830</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="https://www.google.com/maps?q=Gul+Abad+Pul+Charsadda" target="_blank" class="mt-10 inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-black hover:scale-105 transition shadow-2xl uppercase">Open Google Maps</a>
+    <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-black text-blue-700 uppercase italic">Ahmad Autos</h2>
+            <p class="mt-4 font-bold text-lg"><i class="fa-solid fa-clock text-blue-600"></i> Timing: 08:00 AM - 08:00 PM</p>
+            <p class="mt-2 font-mono text-xl">+92 315 9598830</p>
+            <p class="mt-1 text-gray-500">Gul Abad Pul, Charsadda, Pakistan</p>
+            <div class="mt-8 h-64 w-full rounded-2xl overflow-hidden border-2 dark:border-gray-700 shadow-inner">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1156.4!2d71.7!3d34.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA2JzAwLjAiTiA3McKwNDInMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000" class="w-full h-full grayscale invert-[0.1]" loading="lazy"></iframe>
             </div>
-            <div class="h-96 rounded-[40px] overflow-hidden shadow-2xl border-4 border-white/20">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11516.48000!2d71.74!3d34.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA5JzAwLjAiTiA3McKwNDQnMDAuMCJF!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
-                        class="w-full h-full grayscale hover:grayscale-0 transition-all duration-1000" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <p class="mt-10 text-xs text-gray-400 tracking-[0.4em] uppercase">Original Quality Since 2018</p>
         </div>
-    </section>
-
-    <footer class="py-12 bg-black text-center text-gray-500 uppercase tracking-widest text-sm font-bold">
-        &copy; 2026 Ahmad Autos Charsadda. Delivering Quality Since 2018.
     </footer>
 
+    <script>
+        function toggleTheme() {
+            const html = document.getElementById('html-tag');
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('light')) {
+                html.classList.replace('light', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                html.classList.replace('dark', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+    </script>
 </body>
 </html>

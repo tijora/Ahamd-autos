@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ur" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Autos - Premium Bike Parts</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        // Tailwind configuration for Dark Mode
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur shadow-md">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-wider text-red-600 dark:text-red-500">
+                AHMAD AUTOS
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#home" class="hover:text-red-600 transition">Home</a>
+                <a href="#categories" class="hover:text-red-600 transition">Categories</a>
+                <a href="#about" class="hover:text-red-600 transition">About</a>
+                <a href="#contact" class="hover:text-red-600 transition">Contact</a>
+            </nav>
+
+            <!-- Search & Theme Toggle -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="relative hidden sm:block">
+                    <input type="text" placeholder="Search parts..." class="w-48 bg-gray-100 dark:bg-gray-800 text-sm px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <i class="fa-solid fa-magnifying-glass absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+
+                <!-- Dark/Light Mode Button -->
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i id="theme-icon" class="fa-solid fa-moon text-lg text-gray-600 dark:text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative h-[70vh] flex items-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1600&q=80');">
+        <div class="container mx-auto px-4 text-center md:text-left text-white">
+            <span class="text-red-500 font-bold uppercase tracking-widest text-sm">Established Since 2018</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mt-2 mb-4">High-Quality Bike Parts <br>& Accessories</h1>
+            <p class="text-gray-300 max-w-lg mb-6">Apni bike ke liye behtareen aur asli spare parts hasil karein. Hamein aapki ride ki fikar hai.</p>
+            <a href="https://wa.me/923159599830" target="_blank" class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition">
+                <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Order on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section id="categories" class="py-16 container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold border-b-4 border-red-500 inline-block pb-2">Bikes Parts Categories</h2>
+            <p class="text-gray-500 dark:text-gray-400 mt-2">Jo bhi chahiye, sab milega</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Category 1 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=400&q=80" alt="Engine Parts" class="h-48 w-full object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Engine Parts</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Pistons, Cylinder Blocks, Valves & more.</p>
+                </div>
+            </div>
+            <!-- Category 2 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                <img src="https://images.unsplash.com/photo-1615887023516-9b6bcd559e87?auto=format&fit=crop&w=400&q=80" alt="Tyres & Rims" class="h-48 w-full object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Tyres & Rims</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Premium quality grip tyres for safety.</p>
+                </div>
+            </div>
+            <!-- Category 3 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=400&q=80" alt="Brakes & Cables" class="h-48 w-full object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Brakes & Cables</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Brake pads, shoe, and smooth throttle cables.</p>
+                </div>
+            </div>
+            <!-- Category 4 -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=400&q=80" alt="Lights & Electrical" class="h-48 w-full object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Lights & Electricals</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">LED Headlights, Indicators & Batteries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 bg-gray-100 dark:bg-gray-800 transition-colors">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h2 class="text-3xl font-bold mb-4">About Ahmad Autos</h2>
+            <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                Ahmad Autos ka aaghaz **2018** me hua tha. Pichle kayi saalon se hum apne ilaqe me tamam qism ki motorcycles ke genuine aur high-quality spare parts faraham kar rahe hain. Hamara maqsad customer ko munasib qemat me behtareen saman dena hai taake aapka safar hamesha mehfooz rahe.
+            </p>
+            <div class="mt-6 inline-block bg-red-600 text-white font-bold px-4 py-2 rounded">
+                6+ Years of Trust
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-16 container mx-auto px-4 max-w-xl text-center">
+        <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+            <i class="fa-solid fa-store text-4xl text-red-500 mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Shop Timing & Location</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-6">Visit our shop or order directly via WhatsApp.</p>
+            
+            <div class="flex flex-col space-y-4 text-left inline-block">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-phone text-green-500"></i>
+                    <span><strong>Call / WhatsApp:</strong> 0315-9599830</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-clock text-blue-500"></i>
+                    <span><strong>Timing:</strong> 09:00 AM to 09:00 PM</span>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <a href="https://wa.me/923159599830" target="_blank" class="w-full justify-center inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition">
+                    <i class="fa-brands fa-whatsapp text-2xl mr-2"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-6 border-t border-gray-800 text-center text-sm">
+        <p>&copy; 2026 Ahmad Autos. All Rights Reserved. Created since 2018.</p>
+    </footer>
+
+    <!-- DARK/LIGHT MODE JAVASCRIPT -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or default to light
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    </script>
+</body>
+</html>

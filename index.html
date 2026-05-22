@@ -3,114 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | Charsadda</title>
+    <title>Ahmad Autos | 3D Experience</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = { darkMode: 'class' }
     </script>
     <style>
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0, 30, 90, 0.7), rgba(0, 0, 0, 0.8));
+        /* 3D Glass Effect */
+        .glass-3d {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
-        .dark .card-bg { background-color: #111827; color: white; border-color: #374151; }
-        .transition-all { transition: all 0.4s ease; }
+        
+        .hero-title {
+            transform: translateZ(50px); /* Text floats above container */
+            text-shadow: 0 20px 30px rgba(0,0,0,0.5);
+        }
+
+        .dark .glass-3d {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth Tilt Transition */
+        .tilt-card {
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        body { overflow-x: hidden; }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-all font-sans">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
 
-    <div class="fixed bottom-6 right-6 z-[100]">
-        <button onclick="toggleTheme()" class="bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:rotate-12 transition-all border-2 border-white">
-            <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
+    <div class="fixed top-5 right-5 z-[100]">
+        <button onclick="toggleTheme()" class="bg-white dark:bg-gray-800 p-3 rounded-full shadow-xl border dark:border-gray-700">
+            <i id="theme-icon" class="fa-solid fa-moon text-xl text-blue-600"></i>
         </button>
     </div>
 
-    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-gears text-blue-600 text-2xl"></i>
-                <h1 class="text-2xl font-black text-blue-600 tracking-tighter uppercase">Ahmad Autos</h1>
-            </div>
-            <a href="https://wa.me/923159598830" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full font-bold flex items-center shadow-md transition-all">
-                <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp
-            </a>
+    <section id="hero-container" class="relative h-screen flex items-center justify-center bg-black overflow-hidden">
+        <div class="absolute inset-0 opacity-60 scale-110">
+            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover">
         </div>
-    </nav>
 
-    <section class="relative h-[80vh] flex items-center justify-center bg-cover bg-center" 
-             style="background-image: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1600&q=80');">
-        <div class="absolute inset-0 hero-overlay"></div>
-        <div class="relative text-center text-white px-4 max-w-4xl">
-            <h1 class="text-6xl md:text-9xl font-black mb-2 drop-shadow-2xl tracking-tighter uppercase italic">AHMAD AUTOS</h1>
-            <p class="text-xl md:text-3xl font-light mb-8 tracking-widest text-blue-400 uppercase drop-shadow">Your Trusted Partner for Genuine Bike Parts</p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-3 rounded-2xl font-bold flex items-center">
-                    <i class="fa-solid fa-location-dot mr-3 text-red-500"></i> Gul Abad Pul, Charsadda
-                </div>
+        <div id="tilt-box" class="glass-3d p-12 md:p-24 rounded-[50px] text-center text-white max-w-5xl mx-4 tilt-card">
+            <h1 class="hero-title text-6xl md:text-9xl font-black italic tracking-tighter uppercase mb-4">
+                AHMAD <span class="text-blue-500">AUTOS</span>
+            </h1>
+            <p class="hero-title text-xl md:text-3xl font-bold tracking-[0.2em] text-blue-300 mb-10">
+                GENUINE BIKE PARTS SPECIALIST
+            </p>
+            <div class="hero-title flex flex-col md:flex-row items-center justify-center gap-6 font-bold">
+                <span class="bg-blue-600 px-8 py-3 rounded-full shadow-lg">
+                    <i class="fa-solid fa-location-dot mr-2"></i> Gul Abad Pul, Charsadda
+                </span>
+                <a href="https://wa.me/923159598830" class="bg-green-600 px-8 py-3 rounded-full shadow-lg hover:bg-green-700 transition">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> +92 315 9598830
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="parts" class="py-24 container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black uppercase tracking-widest text-blue-600">Inventory Categories</h2>
-            <div class="h-1.5 w-32 bg-blue-600 mx-auto mt-4 rounded-full"></div>
-        </div>
+    <section class="py-24 container mx-auto px-6">
+        <h2 class="text-4xl font-black text-center mb-16 uppercase italic">Our 3D Inventory</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="card-bg bg-white rounded-[2rem] shadow-2xl overflow-hidden transform hover:-translate-y-4 transition-all border">
-                <img src="https://images.unsplash.com/photo-1590566107427-14457ff41871?auto=format&fit=crop&w=600&q=80" class="h-64 w-full object-cover" alt="Engine Parts">
-                <div class="p-8 text-center">
-                    <div class="bg-blue-100 dark:bg-blue-900 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fa-solid fa-engine text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-2 uppercase">Engine Parts</h3>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">Pistons, Valves, Connecting Rods & Gears</p>
-                    <a href="https://wa.me/923159598830" class="block w-full py-4 bg-gray-900 dark:bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all uppercase">Get Price</a>
+            <div class="tilt-card bg-white dark:bg-gray-800 p-2 rounded-[30px] shadow-2xl border dark:border-gray-700">
+                <img src="https://images.unsplash.com/photo-1486006396193-c8168b832601?auto=format&w=600" class="rounded-[25px] h-60 w-full object-cover mb-6">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-black uppercase text-blue-600 mb-2">Engine Parts</h3>
+                    <p class="text-sm opacity-70 mb-6">Pistons, Valves, and Crankshafts</p>
+                    <button class="w-full py-3 border-2 border-blue-600 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Details</button>
                 </div>
             </div>
 
-            <div class="card-bg bg-white rounded-[2rem] shadow-2xl overflow-hidden transform hover:-translate-y-4 transition-all border">
-                <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=600&q=80" class="h-64 w-full object-cover" alt="Chain Sprocket">
-                <div class="p-8 text-center">
-                    <div class="bg-orange-100 dark:bg-orange-900 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fa-solid fa-link text-orange-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-2 uppercase">Chain & Sprocket</h3>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">Complete Grari Sets & Heavy Duty Chains</p>
-                    <a href="https://wa.me/923159598830" class="block w-full py-4 bg-gray-900 dark:bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all uppercase">Get Price</a>
+            <div class="tilt-card bg-white dark:bg-gray-800 p-2 rounded-[30px] shadow-2xl border dark:border-gray-700">
+                <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&w=600" class="rounded-[25px] h-60 w-full object-cover mb-6">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-black uppercase text-blue-600 mb-2">Chain Kits</h3>
+                    <p class="text-sm opacity-70 mb-6">Heavy Duty Chains & Grari Sets</p>
+                    <button class="w-full py-3 border-2 border-blue-600 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Details</button>
                 </div>
             </div>
 
-            <div class="card-bg bg-white rounded-[2rem] shadow-2xl overflow-hidden transform hover:-translate-y-4 transition-all border">
-                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" class="h-64 w-full object-cover" alt="Body Parts">
-                <div class="p-8 text-center">
-                    <div class="bg-yellow-100 dark:bg-yellow-900 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fa-solid fa-bolt text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-2 uppercase">Body & Electrical</h3>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">Headlights, Indicators, Mirrors & Wiring</p>
-                    <a href="https://wa.me/923159598830" class="block w-full py-4 bg-gray-900 dark:bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all uppercase">Get Price</a>
+            <div class="tilt-card bg-white dark:bg-gray-800 p-2 rounded-[30px] shadow-2xl border dark:border-gray-700">
+                <img src="https://images.unsplash.com/photo-1547617304-747d76a7493a?auto=format&w=600" class="rounded-[25px] h-60 w-full object-cover mb-6">
+                <div class="p-6 text-center">
+                    <h3 class="text-2xl font-black uppercase text-blue-600 mb-2">Electrical</h3>
+                    <p class="text-sm opacity-70 mb-6">Lights, CDI, and Wiring</p>
+                    <button class="w-full py-3 border-2 border-blue-600 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Details</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-100 dark:bg-gray-800 py-20 border-t dark:border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-black mb-6 uppercase text-blue-600 tracking-tighter">Ahmad Autos Charsadda</h2>
-            <div class="flex flex-col items-center space-y-4">
-                <p class="text-2xl font-mono font-bold text-green-600">+92 315 9598830</p>
-                <div class="flex items-center space-x-3 text-lg font-medium">
-                    <i class="fa-solid fa-map-pin text-red-500"></i>
-                    <span>Gul Abad Pul, Charsadda, Khyber Pakhtunkhwa</span>
-                </div>
-            </div>
-            <p class="mt-12 text-xs text-gray-400 uppercase tracking-[0.5em]">Original Parts • Best Price • Since 2018</p>
-        </div>
-    </footer>
-
     <script>
+        // 3D TILT LOGIC
+        const cards = document.querySelectorAll('.tilt-card');
+        
+        document.addEventListener('mousemove', (e) => {
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            
+            cards.forEach(card => {
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+        });
+
+        // Reset position when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            cards.forEach(card => {
+                card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            });
+        });
+
+        // THEME TOGGLE
         function toggleTheme() {
             const html = document.getElementById('html-tag');
             const icon = document.getElementById('theme-icon');

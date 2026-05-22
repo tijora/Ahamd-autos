@@ -49,14 +49,11 @@
         }
         .nav-link:hover::after { width: 100%; }
 
-        /* Animation for icons */
-        .hover-bounce:hover i {
-            animation: bounce 0.5s ease infinite alternate;
+        .image-glow {
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.2);
+            transition: transform 0.5s ease;
         }
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-5px); }
-        }
+        .image-glow:hover { transform: scale(1.02); }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
@@ -94,28 +91,11 @@
     </header>
 
     <section id="about" class="py-24 bg-white dark:bg-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
-                    <img src="https://images.pexels.com/photos/11890955/pexels-photo-11890955.jpeg" class="rounded-[3rem] shadow-2xl border-8 border-gray-100 dark:border-slate-800">
-                </div>
-                <div data-aos="fade-left">
-                    <h2 class="text-5xl font-black italic uppercase mb-6"><span class="text-red-600">8 Years</span> Of Excellence</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8 font-medium">
-                        2018 se Ahmad Autos Charsadda mein bike lovers ka bharosa bana hua hai. Hum genuine quality aur behtareen service faraham karte hain taake aapki sawari hamesha naye jaisi rahe.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="p-6 bg-gray-50 dark:bg-slate-800 rounded-3xl text-center">
-                            <h4 class="text-3xl font-black text-red-600">2018</h4>
-                            <p class="font-bold uppercase text-[10px] tracking-widest">Established</p>
-                        </div>
-                        <div class="p-6 bg-gray-50 dark:bg-slate-800 rounded-3xl text-center">
-                            <h4 class="text-3xl font-black text-red-600">Genuine</h4>
-                            <p class="font-bold uppercase text-[10px] tracking-widest">Quality Parts</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h2 class="text-5xl font-black italic uppercase mb-6" data-aos="fade-up"><span class="text-red-600">8 Years</span> Of Trust</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8 font-medium" data-aos="fade-up" data-aos-delay="100">
+                2018 se Ahmad Autos Charsadda mein bike lovers ka bharosa bana hua hai. Hum genuine quality aur behtareen service faraham karte hain taake aapki sawari hamesha naye jaisi rahe. Hum sirf parts nahi bechte, hum quality aur safety ki guarantee dete hain.
+            </p>
         </div>
     </section>
 
@@ -125,25 +105,25 @@
             <div class="h-1.5 w-24 bg-red-600 mx-auto mt-2"></div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="group relative rounded-[2rem] overflow-hidden shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="group relative rounded-[2rem] overflow-hidden shadow-2xl" data-aos="fade-up">
                 <img src="https://images.pexels.com/photos/11890966/pexels-photo-11890966.jpeg" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-8 text-white">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
                     <h3 class="text-2xl font-black italic uppercase">Engine Parts</h3>
-                    <a href="https://wa.me/923159598830" class="bg-red-600 text-center py-3 mt-4 rounded-xl font-bold uppercase text-xs tracking-widest">Check Price</a>
+                    <a href="https://wa.me/923159598830" class="bg-red-600 text-center py-3 mt-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-red-700">Check Price</a>
+                </div>
+            </div>
+            <div class="group relative rounded-[2rem] overflow-hidden shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.pexels.com/photos/37609825/pexels-photo-37609825.jpeg" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
+                    <h3 class="text-2xl font-black italic uppercase">Chain & Grari</h3>
+                    <a href="https://wa.me/923159598830" class="bg-red-600 text-center py-3 mt-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-red-700">Check Price</a>
                 </div>
             </div>
             <div class="group relative rounded-[2rem] overflow-hidden shadow-2xl" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.pexels.com/photos/37609825/pexels-photo-37609825.jpeg" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-8 text-white">
-                    <h3 class="text-2xl font-black italic uppercase">Chain & Grari</h3>
-                    <a href="https://wa.me/923159598830" class="bg-red-600 text-center py-3 mt-4 rounded-xl font-bold uppercase text-xs tracking-widest">Check Price</a>
-                </div>
-            </div>
-            <div class="group relative rounded-[2rem] overflow-hidden shadow-2xl" data-aos="fade-up" data-aos-delay="300">
                 <img src="https://images.pexels.com/photos/12000096/pexels-photo-12000096.jpeg" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-8 text-white">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
                     <h3 class="text-2xl font-black italic uppercase">Electricals</h3>
-                    <a href="https://wa.me/923159598830" class="bg-red-600 text-center py-3 mt-4 rounded-xl font-bold uppercase text-xs tracking-widest">Check Price</a>
+                    <a href="https://wa.me/923159598830" class="bg-red-600 text-center py-3 mt-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-red-700">Check Price</a>
                 </div>
             </div>
         </div>
@@ -153,16 +133,16 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
-                    <h2 class="text-5xl font-black italic uppercase mb-8 font-luxury">Find <span class="text-red-600">Us</span></h2>
+                    <h2 class="text-5xl font-black italic uppercase mb-8 font-luxury">Store <span class="text-red-600">Info</span></h2>
                     
                     <div class="space-y-6">
-                        <a href="https://maps.app.goo.gl/a2VpCJt7nWj64Pqy9?g_st=ac" target="_blank" class="flex items-center p-6 bg-white dark:bg-slate-900 rounded-3xl shadow-lg border-l-4 border-red-600 hover-bounce transition-all">
+                        <div class="flex items-center p-6 bg-white dark:bg-slate-900 rounded-3xl shadow-lg border-l-4 border-red-600">
                             <i class="fa-solid fa-location-dot text-3xl text-red-600 mr-6"></i>
                             <div>
-                                <p class="text-xs font-bold uppercase text-gray-400">Address</p>
+                                <p class="text-xs font-bold uppercase text-gray-400">Location</p>
                                 <p class="text-xl font-black italic">Gul Abad Pul, Charsadda, KP</p>
                             </div>
-                        </a>
+                        </div>
                         
                         <div class="flex items-center p-6 bg-white dark:bg-slate-900 rounded-3xl shadow-lg border-l-4 border-red-600">
                             <i class="fa-solid fa-clock text-3xl text-red-600 mr-6"></i>
@@ -175,25 +155,20 @@
                         <div class="flex items-center p-6 bg-white dark:bg-slate-900 rounded-3xl shadow-lg border-l-4 border-red-600">
                             <i class="fa-solid fa-phone text-3xl text-red-600 mr-6"></i>
                             <div>
-                                <p class="text-xs font-bold uppercase text-gray-400">Phone</p>
+                                <p class="text-xs font-bold uppercase text-gray-400">WhatsApp</p>
                                 <p class="text-xl font-black italic">+92 315 9598830</p>
                             </div>
                         </div>
                     </div>
+                    <div class="mt-10">
+                         <a href="https://maps.app.goo.gl/a2VpCJt7nWj64Pqy9?g_st=ac" target="_blank" class="inline-block bg-slate-900 text-white dark:bg-red-600 px-10 py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:scale-105 transition">
+                            View Live Map
+                         </a>
+                    </div>
                 </div>
 
-                <div class="relative h-[450px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700" data-aos="zoom-in">
-                    <iframe 
-                        src="https://maps.app.goo.gl/a2VpCJt7nWj64Pqy9?g_st=ac" 
-                        class="w-full h-full grayscale hover:grayscale-0 transition-all duration-700" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                    <div class="absolute bottom-6 left-6 right-6">
-                        <a href="https://maps.app.goo.gl/a2VpCJt7nWj64Pqy9?g_st=ac" target="_blank" class="block bg-red-600 text-white text-center py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-2xl">
-                            Open in Google Maps
-                        </a>
-                    </div>
+                <div class="relative rounded-[3rem] overflow-hidden shadow-2xl image-glow" data-aos="zoom-in">
+                    <img src="https://r.jina.ai/i/03a74934a34b46c69f0073539828ed29" alt="Ahmad Autos Store Info Graphic" class="w-full h-auto object-cover">
                 </div>
             </div>
         </div>
@@ -219,10 +194,8 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animations
         AOS.init({ duration: 1000, once: false });
 
-        // Theme Toggle Function
         function toggleTheme() {
             const html = document.getElementById('html-tag');
             const icon = document.getElementById('theme-icon');
@@ -237,7 +210,6 @@
             }
         }
 
-        // Apply Saved Theme
         if (localStorage.getItem('theme') === 'dark') {
             document.getElementById('html-tag').classList.replace('light', 'dark');
             document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');

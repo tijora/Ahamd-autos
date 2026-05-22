@@ -1,94 +1,92 @@
 <!DOCTYPE html>
-<html lang="ur" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos - Premium Bike Parts</title>
+    <title>Ahmad Autos | Premium Bike Parts</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
     <style>
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-overlay-3d {
+            background: linear-gradient(-45deg, rgba(0, 50, 150, 0.8), rgba(0, 150, 255, 0.7), rgba(10, 20, 80, 0.8));
+            background-size: 400% 400%;
+            animation: flow 10s ease infinite;
+            transform: perspective(1000px) rotateX(5deg);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="bg-gray-50 text-gray-900 transition-colors duration-300">
 
-    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur shadow-md">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-red-600 dark:text-red-500">AHMAD AUTOS</a>
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800">
-                    <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
-                </button>
-            </div>
+            <a href="#" class="text-2xl font-bold text-blue-700">AHMAD AUTOS</a>
+            <a href="https://wa.me/923159598830" class="text-green-600 font-bold text-lg">
+                <i class="fa-brands fa-whatsapp"></i> Help
+            </a>
         </div>
     </header>
 
-    <section id="home" class="relative h-[60vh] flex items-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80');">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Ahmad Autos</h1>
-            <p class="text-xl mb-6">Serving since 2018 - High Quality Bike Parts</p>
-            <a href="https://wa.me/923159599830" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-bold inline-block transition">
-                <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Order
-            </a>
-        </div>
-    </section>
-
-    <section id="categories" class="py-12 container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-10">Bikes Parts Categories</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-                <i class="fa-solid fa-engine text-3xl text-red-500 mb-2"></i>
-                <h3 class="font-bold">Engine Parts</h3>
-            </div>
-            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-                <i class="fa-solid fa-circle-notch text-3xl text-red-500 mb-2"></i>
-                <h3 class="font-bold">Tyres & Rims</h3>
-            </div>
-            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-                <i class="fa-solid fa-bolt text-3xl text-red-500 mb-2"></i>
-                <h3 class="font-bold">Electricals</h3>
-            </div>
-            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
-                <i class="fa-solid fa-screwdriver-wrench text-3xl text-red-500 mb-2"></i>
-                <h3 class="font-bold">Accessories</h3>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-12 bg-gray-100 dark:bg-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">About Our Shop</h2>
-            <p class="max-w-2xl mx-auto mb-8 text-gray-600 dark:text-gray-300">
-                Ahmad Autos 2018 se aapki khidmat mein hazir hai. Hum har qism ki bikes ke parts aur accessories munasib daam par faraham karte hain.
+    <section class="relative h-[70vh] flex items-center justify-center bg-fixed bg-cover bg-center" 
+             style="background-image: url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1200&q=80');">
+        
+        <div class="hero-overlay-3d p-10 md:p-20 text-center text-white max-w-3xl mx-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight drop-shadow-2xl">
+                AHMAD AUTOS
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light italic">
+                Premium Spare Parts for Every Ride
             </p>
-            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg inline-block shadow-lg">
-                <p class="font-bold text-xl">Contact: 0315-9599830</p>
-                <p class="text-red-500">Location: Visit us in Shop!</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://wa.me/923159598830" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg transition transform hover:scale-105 flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp mr-2 text-2xl"></i> Contact on WhatsApp
+                </a>
             </div>
         </div>
     </section>
 
-    <footer class="py-6 text-center text-gray-500 text-sm">
-        &copy; 2026 Ahmad Autos. All Rights Reserved.
+    <section class="py-16 container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">Our Specialities</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-blue-600 text-center transform hover:-translate-y-2 transition">
+                <i class="fa-solid fa-gear text-5xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Engine Parts</h3>
+                <p class="text-gray-600">High-performance pistons, valves, and rings.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-blue-600 text-center transform hover:-translate-y-2 transition">
+                <i class="fa-solid fa-gauge-high text-5xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Electronics</h3>
+                <p class="text-gray-600">CDI units, wiring, and premium lighting solutions.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-blue-600 text-center transform hover:-translate-y-2 transition">
+                <i class="fa-solid fa-oil-can text-5xl text-blue-600 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Maintenance</h3>
+                <p class="text-gray-600">Top quality filters and specialized lubricants.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-blue-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Visit Our Shop</h2>
+            <p class="text-xl mb-4">Serving Bike Lovers Since 2018</p>
+            <p class="text-2xl font-mono text-blue-200 underline decoration-green-400 font-bold">
+                Phone: +92 315 9598830
+            </p>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-gray-500 border-t">
+        <p>&copy; 2026 Ahmad Autos. High Quality Spare Parts Hub.</p>
     </footer>
 
-    <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const htmlElement = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            } else {
-                htmlElement.classList.add('dark');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            }
-        });
-    </script>
 </body>
 </html>

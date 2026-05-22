@@ -1,139 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" id="html-tag" class="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | 3D Experience</title>
+    <title>Ahmad Autos | Charsadda - Premium Bike Parts</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
     <style>
-        /* 3D Glass Effect */
-        .glass-3d {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
+        /* 3D Animated Background */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-overlay {
+            background: linear-gradient(-45deg, rgba(30, 58, 138, 0.9), rgba(30, 64, 175, 0.7), rgba(17, 24, 39, 0.9));
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+        .hero-img {
+            background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            transition: transform 0.3s ease;
         }
-        
-        .hero-title {
-            transform: translateZ(50px); /* Text floats above container */
-            text-shadow: 0 20px 30px rgba(0,0,0,0.5);
-        }
-
-        .dark .glass-3d {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Smooth Tilt Transition */
-        .tilt-card {
-            transition: transform 0.1s ease-out;
-            transform-style: preserve-3d;
-        }
-
-        body { overflow-x: hidden; }
+        .glass-card:hover { transform: translateY(-10px); }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+<body class="bg-gray-50 font-sans">
 
-    <div class="fixed top-5 right-5 z-[100]">
-        <button onclick="toggleTheme()" class="bg-white dark:bg-gray-800 p-3 rounded-full shadow-xl border dark:border-gray-700">
-            <i id="theme-icon" class="fa-solid fa-moon text-xl text-blue-600"></i>
-        </button>
-    </div>
+    <a href="https://wa.me/923159598830" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-all">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-    <section id="hero-container" class="relative h-screen flex items-center justify-center bg-black overflow-hidden">
-        <div class="absolute inset-0 opacity-60 scale-110">
-            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-black text-blue-800 italic">AHMAD <span class="text-blue-600">AUTOS</span></h1>
+            <div class="hidden md:flex space-x-6 font-bold text-gray-700 uppercase text-sm">
+                <a href="#parts" class="hover:text-blue-800">Inventory</a>
+                <a href="#location" class="hover:text-blue-800">Find Us</a>
+            </div>
+            <div class="text-blue-800 font-bold hidden sm:block">
+                <i class="fa-solid fa-clock mr-1"></i> 8:00 AM - 8:00 PM
+            </div>
         </div>
+    </nav>
 
-        <div id="tilt-box" class="glass-3d p-12 md:p-24 rounded-[50px] text-center text-white max-w-5xl mx-4 tilt-card">
-            <h1 class="hero-title text-6xl md:text-9xl font-black italic tracking-tighter uppercase mb-4">
-                AHMAD <span class="text-blue-500">AUTOS</span>
-            </h1>
-            <p class="hero-title text-xl md:text-3xl font-bold tracking-[0.2em] text-blue-300 mb-10">
-                GENUINE BIKE PARTS SPECIALIST
-            </p>
-            <div class="hero-title flex flex-col md:flex-row items-center justify-center gap-6 font-bold">
-                <span class="bg-blue-600 px-8 py-3 rounded-full shadow-lg">
-                    <i class="fa-solid fa-location-dot mr-2"></i> Gul Abad Pul, Charsadda
+    <section class="relative h-[80vh] flex items-center justify-center hero-img overflow-hidden">
+        <div class="absolute inset-0 animated-overlay"></div>
+        <div class="relative text-center text-white px-4">
+            <h1 class="text-6xl md:text-8xl font-black mb-4 drop-shadow-2xl">AHMAD AUTOS</h1>
+            <p class="text-xl md:text-3xl font-semibold mb-8 tracking-widest uppercase italic">Genuine Bike Parts & Accessories</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 font-bold">
+                <span class="bg-white text-blue-900 px-8 py-3 rounded-xl shadow-lg border-b-4 border-blue-900">
+                    <i class="fa-solid fa-location-dot mr-2 text-red-600"></i> Gul Abad Pul, Charsadda
                 </span>
-                <a href="https://wa.me/923159598830" class="bg-green-600 px-8 py-3 rounded-full shadow-lg hover:bg-green-700 transition">
-                    <i class="fa-brands fa-whatsapp mr-2"></i> +92 315 9598830
-                </a>
+                <span class="bg-blue-600 text-white px-8 py-3 rounded-xl shadow-lg">
+                    <i class="fa-solid fa-clock mr-2"></i> 08:00 AM TO 08:00 PM
+                </span>
             </div>
         </div>
     </section>
 
-    <section class="py-24 container mx-auto px-6">
-        <h2 class="text-4xl font-black text-center mb-16 uppercase italic">Our 3D Inventory</h2>
+    <section id="parts" class="py-20 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-blue-900 uppercase">Main Inventory</h2>
+            <div class="h-1.5 w-24 bg-blue-600 mx-auto mt-2"></div>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="tilt-card bg-white dark:bg-gray-800 p-2 rounded-[30px] shadow-2xl border dark:border-gray-700">
-                <img src="https://images.unsplash.com/photo-1486006396193-c8168b832601?auto=format&w=600" class="rounded-[25px] h-60 w-full object-cover mb-6">
-                <div class="p-6 text-center">
-                    <h3 class="text-2xl font-black uppercase text-blue-600 mb-2">Engine Parts</h3>
-                    <p class="text-sm opacity-70 mb-6">Pistons, Valves, and Crankshafts</p>
-                    <button class="w-full py-3 border-2 border-blue-600 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Details</button>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="glass-card rounded-[30px] shadow-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1590566107427-14457ff41871?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
+                <div class="p-8 text-center">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2 italic">Engine Parts</h3>
+                    <p class="text-gray-600 mb-6 font-medium uppercase text-sm">CD70 / CG125 Pistons, Valves & Gears</p>
+                    <a href="https://wa.me/923159598830" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-bold w-full hover:bg-blue-800 transition">ORDER ON WHATSAPP</a>
                 </div>
             </div>
 
-            <div class="tilt-card bg-white dark:bg-gray-800 p-2 rounded-[30px] shadow-2xl border dark:border-gray-700">
-                <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&w=600" class="rounded-[25px] h-60 w-full object-cover mb-6">
-                <div class="p-6 text-center">
-                    <h3 class="text-2xl font-black uppercase text-blue-600 mb-2">Chain Kits</h3>
-                    <p class="text-sm opacity-70 mb-6">Heavy Duty Chains & Grari Sets</p>
-                    <button class="w-full py-3 border-2 border-blue-600 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Details</button>
+            <div class="glass-card rounded-[30px] shadow-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
+                <div class="p-8 text-center">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2 italic">Chain & Grari Set</h3>
+                    <p class="text-gray-600 mb-6 font-medium uppercase text-sm">Heavy Duty Sprockets & Drive Chains</p>
+                    <a href="https://wa.me/923159598830" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-bold w-full hover:bg-blue-800 transition">ORDER ON WHATSAPP</a>
                 </div>
             </div>
 
-            <div class="tilt-card bg-white dark:bg-gray-800 p-2 rounded-[30px] shadow-2xl border dark:border-gray-700">
-                <img src="https://images.unsplash.com/photo-1547617304-747d76a7493a?auto=format&w=600" class="rounded-[25px] h-60 w-full object-cover mb-6">
-                <div class="p-6 text-center">
-                    <h3 class="text-2xl font-black uppercase text-blue-600 mb-2">Electrical</h3>
-                    <p class="text-sm opacity-70 mb-6">Lights, CDI, and Wiring</p>
-                    <button class="w-full py-3 border-2 border-blue-600 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Details</button>
+            <div class="glass-card rounded-[30px] shadow-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1547617304-747d76a7493a?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
+                <div class="p-8 text-center">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2 italic">Lights & Wiring</h3>
+                    <p class="text-gray-600 mb-6 font-medium uppercase text-sm">LED Headlights, Indicators & CDIs</p>
+                    <a href="https://wa.me/923159598830" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-bold w-full hover:bg-blue-800 transition">ORDER ON WHATSAPP</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // 3D TILT LOGIC
-        const cards = document.querySelectorAll('.tilt-card');
-        
-        document.addEventListener('mousemove', (e) => {
-            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            
-            cards.forEach(card => {
-                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            });
-        });
+    <section id="location" class="py-20 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-black mb-6">LOCATION & TIMING</h2>
+                <p class="text-xl mb-10 text-blue-100 italic font-medium underline decoration-red-500 decoration-4">Gul Abad Pul, Charsadda, KPK, Pakistan</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center bg-white/10 p-6 rounded-2xl">
+                        <i class="fa-solid fa-clock text-4xl mr-6 text-blue-300"></i>
+                        <div>
+                            <p class="text-sm font-bold uppercase tracking-widest opacity-60">Opening Hours</p>
+                            <p class="text-2xl font-black">08:00 AM - 08:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white/10 p-6 rounded-2xl">
+                        <i class="fa-solid fa-phone-volume text-4xl mr-6 text-green-400"></i>
+                        <div>
+                            <p class="text-sm font-bold uppercase tracking-widest opacity-60">WhatsApp Order</p>
+                            <p class="text-2xl font-black">+92 315 9598830</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://www.google.com/maps?q=Gul+Abad+Pul+Charsadda" target="_blank" class="mt-10 inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-black hover:scale-105 transition shadow-2xl uppercase">Open Google Maps</a>
+            </div>
+            <div class="h-96 rounded-[40px] overflow-hidden shadow-2xl border-4 border-white/20">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11516.48000!2d71.74!3d34.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA5JzAwLjAiTiA3McKwNDQnMDAuMCJF!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+                        class="w-full h-full grayscale hover:grayscale-0 transition-all duration-1000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
-        // Reset position when mouse leaves
-        document.addEventListener('mouseleave', () => {
-            cards.forEach(card => {
-                card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-            });
-        });
+    <footer class="py-12 bg-black text-center text-gray-500 uppercase tracking-widest text-sm font-bold">
+        &copy; 2026 Ahmad Autos Charsadda. Delivering Quality Since 2018.
+    </footer>
 
-        // THEME TOGGLE
-        function toggleTheme() {
-            const html = document.getElementById('html-tag');
-            const icon = document.getElementById('theme-icon');
-            if (html.classList.contains('light')) {
-                html.classList.replace('light', 'dark');
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                html.classList.replace('dark', 'light');
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        }
-    </script>
 </body>
 </html>

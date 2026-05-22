@@ -11,26 +11,25 @@
     </script>
     <style>
         .hero-landscape {
-            height: 65vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+            height: 70vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), 
                               url('https://images.pexels.com/photos/11192307/pexels-photo-11192307.jpeg');
             background-size: cover;
             background-position: center;
         }
         .transition-theme { transition: background-color 0.4s, color 0.4s; }
-        .card-3d:hover { transform: translateY(-10px) rotateX(2deg); transition: 0.3s; }
+        .card-3d:hover { transform: translateY(-10px); transition: 0.3s; }
         
-        /* Red Title Glow Effect */
         .red-title {
-            color: #dc2626; /* Crimson Red */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #dc2626; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
         }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-theme font-sans">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-theme font-sans">
 
     <div class="fixed top-24 right-6 z-[100]">
-        <button onclick="toggleTheme()" class="bg-red-600 text-white p-3 rounded-full shadow-2xl hover:scale-110 transition-all">
+        <button onclick="toggleTheme()" class="bg-red-600 text-white p-3 rounded-full shadow-2xl hover:rotate-12 transition-all">
             <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
         </button>
     </div>
@@ -42,27 +41,19 @@
     <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-gear text-red-600 text-3xl animate-spin-slow"></i>
+                <i class="fa-solid fa-screwdriver-wrench text-red-600 text-3xl"></i>
                 <h1 class="text-3xl font-black red-title italic uppercase tracking-tighter">Ahmad Autos</h1>
             </div>
-            <div class="hidden md:flex items-center space-x-6 font-bold">
-                <span class="text-gray-600 dark:text-gray-300 italic"><i class="fa-solid fa-clock text-red-600 mr-1"></i> 08:00 AM - 08:00 PM</span>
+            <div class="font-bold text-gray-600 dark:text-gray-300 italic hidden sm:block">
+                Premium Bike Parts Charsadda
             </div>
         </div>
     </nav>
 
     <header class="hero-landscape flex items-center justify-center text-center text-white px-4">
         <div class="max-w-4xl">
-            <h1 class="text-6xl md:text-9xl font-black mb-2 tracking-tighter uppercase italic red-title drop-shadow-2xl">AHMAD AUTOS</h1>
-            <p class="text-xl md:text-2xl font-bold text-gray-200 uppercase tracking-[0.2em] mb-8">Premium Genuine Bike Parts Specialist</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center font-bold">
-                <span class="bg-red-600 px-8 py-3 rounded-full shadow-lg">
-                    <i class="fa-solid fa-location-dot mr-2"></i> Gul Abad Pul, Charsadda
-                </span>
-                <span class="bg-white/10 backdrop-blur-md px-8 py-3 rounded-full border border-white/20">
-                    Timing: 8 AM - 8 PM
-                </span>
-            </div>
+            <h1 class="text-7xl md:text-9xl font-black mb-4 tracking-tighter uppercase italic red-title drop-shadow-2xl">AHMAD AUTOS</h1>
+            <p class="text-xl md:text-3xl font-bold text-gray-100 uppercase tracking-[0.3em] italic">Genuine Parts Specialist</p>
         </div>
     </header>
 
@@ -73,13 +64,12 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            
             <div class="card-3d bg-white dark:bg-gray-800 rounded-[2rem] shadow-xl overflow-hidden border dark:border-gray-700">
                 <img src="https://images.pexels.com/photos/11890966/pexels-photo-11890966.jpeg" class="w-full h-64 object-cover">
                 <div class="p-8 text-center">
                     <h3 class="text-2xl font-black text-red-600 mb-2 uppercase italic">Engine Parts</h3>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">CD70, CG125 Pistons & Carburetors</p>
-                    <a href="https://wa.me/923159598830" class="block bg-red-600 text-white py-4 rounded-xl font-black hover:bg-red-700 shadow-lg transition-all">WHATSAPP ORDER</a>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">Genuine Pistons, Valves & Carburetors</p>
+                    <a href="https://wa.me/923159598830" class="block bg-red-600 text-white py-4 rounded-xl font-black hover:bg-red-700 shadow-lg transition-all">GET PRICE</a>
                 </div>
             </div>
 
@@ -87,8 +77,8 @@
                 <img src="https://images.pexels.com/photos/37609825/pexels-photo-37609825.jpeg" class="w-full h-64 object-cover">
                 <div class="p-8 text-center">
                     <h3 class="text-2xl font-black text-red-600 mb-2 uppercase italic">Chain & Grari Set</h3>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">Complete High Performance Gear Kits</p>
-                    <a href="https://wa.me/923159598830" class="block bg-red-600 text-white py-4 rounded-xl font-black hover:bg-red-700 shadow-lg transition-all">WHATSAPP ORDER</a>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">Heavy Duty Sprockets & Drive Chains</p>
+                    <a href="https://wa.me/923159598830" class="block bg-red-600 text-white py-4 rounded-xl font-black hover:bg-red-700 shadow-lg transition-all">GET PRICE</a>
                 </div>
             </div>
 
@@ -96,30 +86,40 @@
                 <img src="https://images.pexels.com/photos/12000096/pexels-photo-12000096.jpeg" class="w-full h-64 object-cover">
                 <div class="p-8 text-center">
                     <h3 class="text-2xl font-black text-red-600 mb-2 uppercase italic">Lights & Wiring</h3>
-                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">LED Headlights & Genuine Wiring</p>
-                    <a href="https://wa.me/923159598830" class="block bg-red-600 text-white py-4 rounded-xl font-black hover:bg-red-700 shadow-lg transition-all">WHATSAPP ORDER</a>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6 font-medium">LED Headlights & Genuine Wiring Kits</p>
+                    <a href="https://wa.me/923159598830" class="block bg-red-600 text-white py-4 rounded-xl font-black hover:bg-red-700 shadow-lg transition-all">GET PRICE</a>
                 </div>
             </div>
-
         </div>
     </main>
 
-    <footer class="bg-gray-200 dark:bg-gray-800 py-16 border-t dark:border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-black text-red-600 italic uppercase mb-4">Ahmad Autos Charsadda</h2>
-            <p class="text-xl font-bold mb-8">Gul Abad Pul, Charsadda, KP, Pakistan</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg text-left border-l-8 border-red-600">
-                    <p class="mb-2 uppercase text-xs tracking-widest text-gray-400 font-bold">Contact Info</p>
-                    <p class="text-2xl font-black mb-4">+92 315 9598830</p>
-                    <p class="text-lg font-bold"><i class="fa-solid fa-clock text-red-600 mr-2"></i> 08:00 AM - 08:00 PM</p>
-                </div>
-                <div class="h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.68832!2d71.733333!3d34.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA5JzAwLjAiTiA3McKwNDQnMDAuMCJF!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk" class="w-full h-full grayscale" allowfullscreen="" loading="lazy"></iframe>
+    <section class="py-16 bg-gray-100 dark:bg-gray-800/50">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border-l-8 border-red-600">
+                    <h3 class="text-red-600 font-black text-2xl mb-4 uppercase italic">Store Information</h3>
+                    <div class="space-y-4">
+                        <p class="text-lg font-bold"><i class="fa-solid fa-map-location-dot text-red-600 mr-3"></i> Gul Abad Pul, Charsadda, KP</p>
+                        <p class="text-lg font-bold"><i class="fa-solid fa-clock text-red-600 mr-3"></i> 08:00 AM TO 08:00 PM</p>
+                        <p class="text-lg font-bold"><i class="fa-solid fa-phone text-red-600 mr-3"></i> +92 315 9598830</p>
+                    </div>
                 </div>
             </div>
-            <p class="text-gray-400 text-xs tracking-[0.5em] uppercase pt-8">Original Parts • Charsadda • Since 2018</p>
+            <div class="h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3293.7!2d71.7!3d34.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2spk!4v123456789" class="w-full h-full grayscale dark:invert" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white dark:bg-gray-900 py-12 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-black text-red-600 italic mb-4 uppercase">Ahmad Autos</h2>
+            <p class="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4">Original Quality Bike Parts Since 2018</p>
+            <div class="border-t dark:border-gray-800 pt-6">
+                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">
+                    &copy; 2026 Ahmad Autos. All Rights Reserved.
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -145,3 +145,4 @@
     </script>
 </body>
 </html>
+

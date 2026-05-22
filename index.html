@@ -1,172 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-tag" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | Honda Specialist</title>
+    <title>Ahmad Autos | Charsadda</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @keyframes flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .hero-3d {
-            background: linear-gradient(-45deg, rgba(0, 40, 120, 0.85), rgba(0, 100, 220, 0.75), rgba(0, 20, 60, 0.9));
-            background-size: 400% 400%;
-            animation: flow 8s ease infinite;
-            backdrop-filter: blur(5px);
-            border-radius: 30px;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.7);
-            border: 1px solid rgba(255,255,255,0.2);
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
         }
-        .part-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
-        .part-card:hover { transform: translateY(-15px) scale(1.02); }
-        .hidden-details { display: none; }
-        .active-details { display: block; animation: slideUp 0.6s ease-out; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+        .dark .card-bg { background-color: #1f2937; color: white; }
+        .transition-all { transition: all 0.3s ease; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-all">
 
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b">
+    <div class="fixed bottom-5 right-5 z-[100]">
+        <button onclick="toggleTheme()" class="bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all">
+            <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
+        </button>
+    </div>
+
+    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-motorcycle text-blue-700 text-3xl"></i>
-                <h1 class="text-3xl font-black text-blue-900 tracking-tighter">AHMAD AUTOS</h1>
-            </div>
-            <a href="https://wa.me/923159598830" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full font-bold flex items-center shadow-lg transition">
-                <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp
+            <h1 class="text-3xl font-black text-blue-600 tracking-tighter uppercase">Ahmad Autos</h1>
+            <a href="https://wa.me/923159598830" class="bg-green-500 text-white px-5 py-2 rounded-lg font-bold flex items-center shadow-md">
+                <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
             </a>
         </div>
     </nav>
 
-    <section class="relative h-[80vh] flex items-center justify-center bg-fixed bg-cover bg-center" 
-             style="background-image: url('https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1600&q=80');">
+    <section class="relative h-[70vh] flex items-center justify-center bg-cover bg-center" 
+             style="background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1600&q=80');">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative text-center text-white px-4">
+            <h1 class="text-6xl md:text-8xl font-black mb-4 drop-shadow-lg tracking-widest uppercase">AHMAD AUTOS</h1>
+            <p class="text-xl md:text-2xl font-semibold opacity-90 mb-8 uppercase tracking-widest">Premium Bike Parts & Accessories</p>
+            <div class="bg-blue-600/80 backdrop-blur px-6 py-3 rounded-full inline-block font-bold">
+                <i class="fa-solid fa-location-dot mr-2"></i> Gul Abad Pul, Charsadda, Pakistan
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 underline decoration-blue-500 underline-offset-8">Our Categories</h2>
         
-        <div class="hero-3d p-10 md:p-20 text-center text-white mx-4 max-w-4xl">
-            <span class="bg-red-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Best Quality Parts</span>
-            <h1 class="text-5xl md:text-8xl font-black mb-4 drop-shadow-2xl italic uppercase">
-                HONDA <span class="text-blue-400">Gen-Parts</span>
-            </h1>
-            <p class="text-xl md:text-2xl font-light mb-8 opacity-90">Specialized in Honda CD70, CG125 & All Motorbikes Spare Parts</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#parts" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-xl">Browse Parts</a>
-                <a href="#location" class="bg-white text-blue-900 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition shadow-xl border border-blue-200">Visit Shop</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="parts" class="py-24 container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black text-gray-800 uppercase tracking-tight">Main Inventory</h2>
-            <p class="text-gray-500">Click on any category to view current pricing</p>
-        </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div onclick="showDetails('engine')" class="part-card bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                <img src="https://images.unsplash.com/photo-1590566107427-14457ff41871?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
-                <div class="p-8 text-center bg-white">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                        <i class="fa-solid fa-engine"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800">Engine Parts</h3>
+            <div class="card-bg bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 transition-all border dark:border-gray-700">
+                <img src="https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=600" class="h-64 w-full object-cover" alt="Engine Parts">
+                <div class="p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Engine Components</h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6 italic">High quality pistons, gears & more.</p>
+                    <button class="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">View Prices</button>
                 </div>
             </div>
 
-            <div onclick="showDetails('electronics')" class="part-card bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
-                <div class="p-8 text-center bg-white">
-                    <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800">Electronics</h3>
+            <div class="card-bg bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 transition-all border dark:border-gray-700">
+                <img src="https://images.pexels.com/photos/2589333/pexels-photo-2589333.jpeg?auto=compress&cs=tinysrgb&w=600" class="h-64 w-full object-cover" alt="Electronics">
+                <div class="p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Electrical Systems</h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6 italic">Cables, lights & battery parts.</p>
+                    <button class="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">View Prices</button>
                 </div>
             </div>
 
-            <div onclick="showDetails('maintenance')" class="part-card bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                <img src="https://images.unsplash.com/photo-1579483321946-f9f31a2992f4?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
-                <div class="p-8 text-center bg-white">
-                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                        <i class="fa-solid fa-oil-can"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800">Maintenance</h3>
-                </div>
-            </div>
-        </div>
-
-        <div id="details-box" class="mt-16 p-8 bg-white rounded-[40px] shadow-2xl border-2 border-blue-100 hidden-details">
-            <div id="engine-info" class="hidden-details">
-                <h2 class="text-3xl font-black mb-8 text-blue-900 border-b pb-4">Engine Components (Honda Spec)</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Cylinder Kit 70cc</span> <span class="text-green-600">Rs. 3,500</span></div>
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Clutch Plates Set</span> <span class="text-green-600">Rs. 1,250</span></div>
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Connecting Rod</span> <span class="text-green-600">Rs. 1,800</span></div>
-                </div>
-            </div>
-            
-            <div id="electronics-info" class="hidden-details">
-                <h2 class="text-3xl font-black mb-8 text-blue-900 border-b pb-4">Electrical & Wiring</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Magnet Coil Set</span> <span class="text-green-600">Rs. 1,400</span></div>
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Indicator Set (4 Pcs)</span> <span class="text-green-600">Rs. 950</span></div>
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Wiring Harness Gen.</span> <span class="text-green-600">Rs. 1,100</span></div>
-                </div>
-            </div>
-
-            <div id="maintenance-info" class="hidden-details">
-                <h2 class="text-3xl font-black mb-8 text-blue-900 border-b pb-4">Oils & Maintenance</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Engine Oil (Atlas Honda)</span> <span class="text-green-600">Rs. 1,350</span></div>
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Brake Shoe Rear</span> <span class="text-green-600">Rs. 550</span></div>
-                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Drive Chain Kit</span> <span class="text-green-600">Rs. 2,800</span></div>
+            <div class="card-bg bg-white rounded-3xl shadow-xl overflow-hidden transform hover:-translate-y-4 transition-all border dark:border-gray-700">
+                <img src="https://images.pexels.com/photos/2116491/pexels-photo-2116491.jpeg?auto=compress&cs=tinysrgb&w=600" class="h-64 w-full object-cover" alt="Body Parts">
+                <div class="p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Body & Rims</h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-6 italic">Frames, mirrors & alloy rims.</p>
+                    <button class="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">View Prices</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="location" class="py-20 bg-blue-900 text-white rounded-t-[50px]">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-5xl font-black mb-6">Find Us In <span class="text-blue-400">Rawalpindi</span></h2>
-                <p class="text-xl text-blue-100 mb-10">High Court Road par sab se sasti aur behtareen motorcycle parts ki shop.</p>
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <i class="fa-solid fa-location-dot mt-1 mr-4 text-3xl text-red-500"></i>
-                        <p class="text-lg">Shop #1, Ahmad Autos, Opposite Askari Bank, Quaid Avenue, High Court Road, Rawalpindi</p>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fa-solid fa-phone-volume mr-4 text-3xl text-green-400"></i>
-                        <p class="text-2xl font-mono">+92 315 9598830</p>
-                    </div>
-                </div>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=Ahmad+Autos+High+Court+Road+Rawalpindi" target="_blank" class="mt-12 inline-block bg-white text-blue-900 px-8 py-4 rounded-2xl font-black hover:scale-105 transition shadow-2xl">Open GPS Navigation</a>
+    <footer class="bg-white dark:bg-gray-800 py-16 border-t dark:border-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+            <p class="text-xl mb-6 font-mono text-blue-600">+92 315 9598830</p>
+            <div class="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-300">
+                <i class="fa-solid fa-map-pin text-red-500"></i>
+                <span>Gul Abad Pul, Charsadda, KP, Pakistan</span>
             </div>
-            <div class="h-[400px] rounded-[40px] overflow-hidden border-8 border-blue-800 shadow-2xl">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.636666879!2d73.08866!3d33.5654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfdcd00ab0b005%3A0x28ba858ec2cad731!2sAhmad%20Autos!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
-                        class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <p class="mt-10 text-sm text-gray-400 uppercase tracking-widest italic">Ahmad Autos - Quality You Can Trust</p>
         </div>
-    </section>
-
-    <footer class="py-10 text-center bg-gray-900 text-gray-500">
-        <p class="font-bold">© 2026 Ahmad Autos Pakistan - Genuine Parts Provider</p>
     </footer>
 
     <script>
-        function showDetails(category) {
-            const box = document.getElementById('details-box');
-            box.classList.remove('hidden-details');
-            box.classList.add('active-details');
-
-            // Hide all info
-            document.getElementById('engine-info').classList.add('hidden-details');
-            document.getElementById('electronics-info').classList.add('hidden-details');
-            document.getElementById('maintenance-info').classList.add('hidden-details');
-
-            // Show selected
-            document.getElementById(category + '-info').classList.remove('hidden-details');
+        function toggleTheme() {
+            const html = document.getElementById('html-tag');
+            const icon = document.getElementById('theme-icon');
             
-            // Scroll smoothly
-            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (html.classList.contains('light')) {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
         }
     </script>
 </body>
 </html>
+

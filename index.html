@@ -1,69 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" id="html-tag" class="dark">
+<html lang="en" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | Elite 3D Dashboard</title>
-    
+    <title>Ahmad Autos | Charsadda</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;900&display=swap');
-
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; transition: background-color 0.5s; }
-        .font-brand { font-family: 'Orbitron', sans-serif; }
-
-        .hero-banner {
-            height: 65vh;
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.9)), 
-                        url('https://images.pexels.com/photos/11192307/pexels-photo-11192307.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 5px solid #dc2626;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 2.5rem;
-        }
-
-        .red-glow { text-shadow: 0 0 20px rgba(220, 38, 38, 0.8); }
-
-        .owner-frame {
-            width: 220px;
-            height: 220px;
-            border: 6px solid #dc2626;
-            padding: 5px;
-            background: white;
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.4);
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .owner-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .tilt-card { transition: transform 0.5s ease; transform-style: preserve-3d; }
-        .tilt-card:hover { transform: translateY(-15px) rotateX(5deg); }
+        .font-brand { font-family: 'Arial Black', sans-serif; }
+        .red-glow { text-shadow: 0 0 20px rgba(220, 38, 38, 0.5); }
+        .hero-banner { height: 80vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/11890966/pexels-photo-11890966.jpeg'); background-size: cover; background-position: center; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2rem; }
+        .owner-img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 5px solid #dc2626; }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
 
     <nav class="fixed w-full z-[100] bg-white/10 backdrop-blur-lg border-b border-white/10 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-brand text-red-600 italic red-glow">AHMAD AUTOS</h1>
-            <button onclick="toggleTheme()" class="bg-red-600 text-white px-4 py-2 rounded-xl font-bold uppercase text-[10px] tracking-widest">
+            <button onclick="toggleTheme()" class="bg-red-600 text-white px-4 py-2 rounded-xl font-bold uppercase text-[10px] tracking-widest hover:bg-red-700 transition">
                 Switch Theme
             </button>
         </div>
@@ -80,7 +37,7 @@
 
     <section class="py-24 container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="glass-card p-4 tilt-card" data-aos="fade-up">
+            <div class="glass-card p-4" data-aos="fade-up">
                 <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
                     <img src="https://images.pexels.com/photos/11890966/pexels-photo-11890966.jpeg" class="w-full h-full object-cover">
                 </div>
@@ -91,7 +48,7 @@
                 </div>
             </div>
             
-            <div class="glass-card p-4 tilt-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card p-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
                     <img src="https://images.pexels.com/photos/37609825/pexels-photo-37609825.jpeg" class="w-full h-full object-cover">
                 </div>
@@ -102,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="glass-card p-4 tilt-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="glass-card p-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
                     <img src="https://images.pexels.com/photos/12000096/pexels-photo-12000096.jpeg" class="w-full h-full object-cover">
                 </div>
@@ -117,10 +74,10 @@
 
     <section class="py-24 bg-slate-200 dark:bg-slate-900/40">
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-            
             <div class="flex flex-col items-center md:items-start" data-aos="fade-right">
-                <div class="owner-frame mb-8">
-                    <img src="https://r.jina.ai/i/6c13cc793f024c75837da7a097c6640f" alt="Ahmad Ali" class="owner-img">
+                <div class="mb-8">
+                    <!-- Updated Image Link Here -->
+                    <img src="https://i.ibb.co/4kVdQdY/In-Shot-20260522-180741598.jpg" alt="Ahmad Ali" class="owner-img">
                 </div>
                 <h4 class="text-4xl font-brand italic red-glow mb-2 uppercase">Ahmad Ali</h4>
                 <p class="text-red-600 font-black tracking-widest uppercase text-xs mb-8">Proprietor | Specialist Since 2018</p>
@@ -152,7 +109,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: false });
-
         function toggleTheme() {
             document.getElementById('html-tag').classList.toggle('dark');
         }

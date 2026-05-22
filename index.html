@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | Elite 3D Dashboard</title>
+    <title>Ahmad Autos | Official Store</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,160 +12,152 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;900&display=swap');
 
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; transition: background-color 0.5s; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .font-brand { font-family: 'Orbitron', sans-serif; }
 
-        /* Hero Image Styling */
-        .hero-banner {
-            height: 65vh;
-            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.9)), 
+        /* Modern Hero Image Styling */
+        .hero-section {
+            height: 75vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(15,23,42,1)), 
                         url('https://images.pexels.com/photos/11192307/pexels-photo-11192307.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 5px solid #dc2626;
+            border-bottom: 6px solid #dc2626;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
+        .glass-container {
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 2.5rem;
+            border-radius: 3rem;
         }
 
-        .red-glow { text-shadow: 0 0 20px rgba(220, 38, 38, 0.8); }
-
-        .owner-hd-frame {
-            width: 180px;
-            height: 180px;
-            border: 5px solid #dc2626;
-            padding: 5px;
-            background: white;
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+        .red-glow-text {
+            text-shadow: 0 0 25px rgba(220, 38, 38, 0.7);
         }
 
-        .owner-img {
+        /* Owner Image Frame */
+        .owner-frame {
+            width: 200px;
+            height: 200px;
+            border: 6px solid #dc2626;
+            padding: 4px;
+            background: #fff;
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.2);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .owner-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
         }
 
-        .tilt-card { transition: transform 0.5s ease; transform-style: preserve-3d; }
-        .tilt-card:hover { transform: translateY(-15px) rotateX(5deg); }
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-card:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
 
-    <nav class="fixed w-full z-[100] bg-white/10 backdrop-blur-lg border-b border-white/10 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-brand text-red-600 italic red-glow">AHMAD AUTOS</h1>
-            <div class="flex items-center gap-4">
-                <button onclick="toggleTheme()" class="bg-white/10 p-2 rounded-full hover:bg-red-600 transition-all">
-                    <i class="fa-solid fa-circle-half-stroke"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <header class="hero-banner">
-        <div class="text-center" data-aos="zoom-out" data-aos-duration="1500">
-            <h2 class="text-6xl md:text-9xl font-brand italic text-white red-glow mb-4">AHMAD<br><span class="text-red-600">AUTOS</span></h2>
-            <div class="inline-block bg-red-600 text-white px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest">
-                Elite Bike Parts Hub
-            </div>
+    <header class="hero-section">
+        <div class="text-center px-6" data-aos="zoom-out">
+            <h1 class="text-6xl md:text-[9rem] font-brand italic text-white red-glow-text leading-tight uppercase">AHMAD<br><span class="text-red-600">AUTOS</span></h1>
+            <p class="text-gray-300 font-black tracking-[0.4em] uppercase text-sm mt-4">Charsadda's Trusted Spare Parts Since 2018</p>
         </div>
     </header>
 
-    <section class="py-20 container mx-auto px-6">
-        <div class="max-w-6xl mx-auto glass-card overflow-hidden shadow-2xl" data-aos="fade-up">
-            <img src="https://r.jina.ai/i/03a74934a34b46c69f0073539828ed29" alt="Ahmad Autos Details" class="w-full h-auto">
-        </div>
-    </section>
-
-    <section class="py-20 container mx-auto px-6">
+    <section class="py-24 container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="glass-card p-4 tilt-card" data-aos="fade-up">
-                <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
+            
+            <div class="glass-container p-6 product-card" data-aos="fade-up">
+                <div class="rounded-3xl overflow-hidden h-64 mb-6 shadow-xl">
                     <img src="https://images.pexels.com/photos/11890966/pexels-photo-11890966.jpeg" class="w-full h-full object-cover">
                 </div>
-                <div class="text-center pb-4">
-                    <h3 class="text-2xl font-brand italic text-red-600 mb-2">Engine Parts</h3>
-                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Carburetor & Pistons</p>
-                    <a href="https://wa.me/923159598830" class="bg-slate-900 dark:bg-red-600 text-white px-8 py-3 rounded-2xl font-black text-xs block">Order Now</a>
+                <div class="text-center">
+                    <h3 class="text-2xl font-brand italic text-red-600 mb-2">Engine System</h3>
+                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Quality Pistons & Carburetors</p>
+                    <a href="https://wa.me/923159598830" class="bg-red-600 hover:bg-red-700 text-white w-full py-4 rounded-2xl font-black text-xs block uppercase tracking-widest transition">Check Stock</a>
                 </div>
             </div>
-            
-            <div class="glass-card p-4 tilt-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
+
+            <div class="glass-container p-6 product-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="rounded-3xl overflow-hidden h-64 mb-6 shadow-xl">
                     <img src="https://images.pexels.com/photos/37609825/pexels-photo-37609825.jpeg" class="w-full h-full object-cover">
                 </div>
-                <div class="text-center pb-4">
-                    <h3 class="text-2xl font-brand italic text-red-600 mb-2">Drive Train</h3>
-                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Chain Sprockets</p>
-                    <a href="https://wa.me/923159598830" class="bg-slate-900 dark:bg-red-600 text-white px-8 py-3 rounded-2xl font-black text-xs block">Order Now</a>
+                <div class="text-center">
+                    <h3 class="text-2xl font-brand italic text-red-600 mb-2">Drive Chain</h3>
+                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Heavy Duty Sprocket Kits</p>
+                    <a href="https://wa.me/923159598830" class="bg-red-600 hover:bg-red-700 text-white w-full py-4 rounded-2xl font-black text-xs block uppercase tracking-widest transition">Check Stock</a>
                 </div>
             </div>
 
-            <div class="glass-card p-4 tilt-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="rounded-[2rem] overflow-hidden h-64 mb-6">
+            <div class="glass-container p-6 product-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="rounded-3xl overflow-hidden h-64 mb-6 shadow-xl">
                     <img src="https://images.pexels.com/photos/12000096/pexels-photo-12000096.jpeg" class="w-full h-full object-cover">
                 </div>
-                <div class="text-center pb-4">
+                <div class="text-center">
                     <h3 class="text-2xl font-brand italic text-red-600 mb-2">Electrical</h3>
-                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">LED & Indicators</p>
-                    <a href="https://wa.me/923159598830" class="bg-slate-900 dark:bg-red-600 text-white px-8 py-3 rounded-2xl font-black text-xs block">Order Now</a>
+                    <p class="text-xs font-bold text-gray-500 mb-6 uppercase">Premium LED Headlights</p>
+                    <a href="https://wa.me/923159598830" class="bg-red-600 hover:bg-red-700 text-white w-full py-4 rounded-2xl font-black text-xs block uppercase tracking-widest transition">Check Stock</a>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <section class="py-24 bg-slate-200 dark:bg-slate-900/40">
+    <section class="py-24 bg-slate-100 dark:bg-slate-900/30">
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             
-            <div class="flex flex-col items-center md:items-start" data-aos="fade-right">
-                <div class="owner-hd-frame rounded-full mb-8 relative">
-                    <img src="https://r.jina.ai/i/6c4a8f9f25254131b74737d2f9b87da6" alt="Ahmad Ali" class="owner-img">
-                    <div class="absolute bottom-4 right-4 bg-red-600 p-2 rounded-full border-4 border-white">
-                        <i class="fa-solid fa-check text-white text-xs"></i>
-                    </div>
+            <div class="flex flex-col items-center md:items-start text-center md:text-left" data-aos="fade-right">
+                <div class="owner-frame mb-8">
+                    <img src="https://r.jina.ai/i/6c4a8f9f25254131b74737d2f9b87da6" alt="Ahmad Ali">
                 </div>
-                <h4 class="text-4xl font-brand italic red-glow mb-2 uppercase">Ahmad Ali</h4>
-                <p class="text-red-600 font-black tracking-widest uppercase text-xs mb-8">Business Owner & Founder</p>
+                <h2 class="text-4xl font-brand italic red-glow-text uppercase mb-2">Ahmad Ali</h2>
+                <p class="text-red-600 font-black tracking-widest uppercase text-xs mb-8">Proprietor & Mechanical Expert</p>
                 
                 <div class="space-y-6">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-md"><i class="fa-solid fa-map-location-dot text-red-600"></i></div>
-                        <span class="font-bold uppercase text-sm italic">Gul Abad Pul, Charsadda, KP</span>
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center text-white"><i class="fa-solid fa-store"></i></div>
+                        <p class="font-bold text-sm uppercase">Established in 2018</p>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-md"><i class="fa-solid fa-headset text-green-600"></i></div>
-                        <span class="font-bold uppercase text-sm italic">+92 315 9598830</span>
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 bg-slate-900 dark:bg-white dark:text-slate-900 rounded-2xl flex items-center justify-center text-white"><i class="fa-solid fa-location-dot"></i></div>
+                        <p class="font-bold text-sm uppercase italic">Gul Abad Pul, Charsadda, KP</p>
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 bg-green-600 rounded-2xl flex items-center justify-center text-white"><i class="fa-brands fa-whatsapp text-xl"></i></div>
+                        <p class="font-bold text-sm">+92 315 9598830</p>
                     </div>
                 </div>
             </div>
 
-            <div class="h-[450px] rounded-[3.5rem] overflow-hidden shadow-3xl border-8 border-white dark:border-slate-800" data-aos="zoom-in">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.8!2d71.7!3d34.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDEyJzAwLjAiTiA3McKwNDInMDAuMCJF!5e0!3m2!1sen!2spk!4v1653240000000!5m2!1sen!2spk" class="w-full h-full grayscale dark:invert"></iframe>
+            <div class="h-[450px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800" data-aos="zoom-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.8!2d71.7!3d34.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDEyJzAwLjAiTiA3McKwNDInMDAuMCJF!5e0!3m2!1sen!2spk!4v1653240000000!5m2!1sen!2spk" class="w-full h-full grayscale dark:invert" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-white/5">
-        <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.6em]">
-            © 2026 Ahmad Autos Charsadda. Authenticity Guaranteed.
+    <footer class="py-16 text-center border-t border-slate-200 dark:border-slate-800">
+        <h3 class="text-xl font-brand text-red-600 italic mb-4">AHMAD AUTOS</h3>
+        <p class="text-gray-500 text-[10px] font-bold uppercase tracking-[0.6em]">
+            © 2026 Charsadda, Pakistan. Quality Since 2018.
         </p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: false });
-
-        function toggleTheme() {
-            document.getElementById('html-tag').classList.toggle('dark');
-        }
     </script>
 </body>
 </html>
+

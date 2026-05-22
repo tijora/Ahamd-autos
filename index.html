@@ -13,7 +13,10 @@
         .hero-banner { height: 80vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/11890966/pexels-photo-11890966.jpeg'); background-size: cover; background-position: center; }
         .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2rem; }
         .owner-img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 5px solid #dc2626; }
+        #map { width: 100%; height: 100%; }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
 
@@ -98,16 +101,8 @@
                 </div>
             </div>
 
-            <!-- MAP FIX: Google Maps embed with correct Sardheri, Charsadda coordinates -->
             <div class="h-[450px] rounded-[3.5rem] overflow-hidden shadow-3xl border-8 border-white dark:border-slate-800" data-aos="zoom-in">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26527.0!2d71.7433!3d34.1748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d90b8e1b3fffff%3A0x1!2sSardheri%2C+Charsadda%2C+Khyber+Pakhtunkhwa%2C+Pakistan!5e0!3m2!1sen!2spk!4v1716000000000!5m2!1sen!2spk"
-                    class="w-full h-full"
-                    style="filter: grayscale(0.3);"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <div id="map"></div>
             </div>
         </div>
     </section>
@@ -124,6 +119,25 @@
         function toggleTheme() {
             document.getElementById('html-tag').classList.toggle('dark');
         }
+
+        // Leaflet OpenStreetMap - Ahmad Autoes, Gull Abad Pul, Sardheri, Charsadda
+        var map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([34.1618, 71.7452], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        var redIcon = L.divIcon({
+            html: '<div style="background:#dc2626;width:20px;height:20px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.4);"></div>',
+            iconSize: [20, 20],
+            iconAnchor: [10, 20],
+            className: ''
+        });
+
+        L.marker([34.1618, 71.7452], { icon: redIcon })
+            .addTo(map)
+            .bindPopup('<b style="color:#dc2626">Ahmad Autos</b><br>Gull Abad Pul, Sardheri<br>Charsadda, KP')
+            .openPopup();
     </script>
 </body>
 </html>

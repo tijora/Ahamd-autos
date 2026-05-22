@@ -3,157 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Autos | Genuine Bike Parts</title>
+    <title>Ahmad Autos | Honda Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @keyframes flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .hero-3d {
-            background: linear-gradient(-45deg, rgba(0, 50, 150, 0.85), rgba(0, 120, 255, 0.75), rgba(10, 30, 100, 0.9));
+            background: linear-gradient(-45deg, rgba(0, 40, 120, 0.85), rgba(0, 100, 220, 0.75), rgba(0, 20, 60, 0.9));
             background-size: 400% 400%;
             animation: flow 8s ease infinite;
-            transform: perspective(1200px) rotateX(2deg);
-            border-radius: 24px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .part-card:hover { transform: scale(1.05); transition: 0.3s; cursor: pointer; }
+        .part-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .part-card:hover { transform: translateY(-15px) scale(1.02); }
         .hidden-details { display: none; }
-        .active-details { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .active-details { display: block; animation: slideUp 0.6s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 overflow-x-hidden">
+<body class="bg-gray-50 text-gray-900">
 
-    <nav class="bg-white sticky top-0 z-50 shadow-sm border-b">
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-black text-blue-800 tracking-tighter">AHMAD AUTOS</h1>
-            <div class="hidden md:flex space-x-8 font-semibold">
-                <a href="#parts" class="hover:text-blue-600">Parts</a>
-                <a href="#location" class="hover:text-blue-600">Find Us</a>
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-motorcycle text-blue-700 text-3xl"></i>
+                <h1 class="text-3xl font-black text-blue-900 tracking-tighter">AHMAD AUTOS</h1>
             </div>
-            <a href="https://wa.me/923159598830" class="bg-green-600 text-white px-5 py-2 rounded-lg font-bold flex items-center">
-                <i class="fa-brands fa-whatsapp mr-2"></i> Chat
+            <a href="https://wa.me/923159598830" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full font-bold flex items-center shadow-lg transition">
+                <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> WhatsApp
             </a>
         </div>
     </nav>
 
-    <section class="relative h-[75vh] flex items-center justify-center bg-fixed bg-cover" 
-             style="background-image: url('https://images.unsplash.com/photo-1611002214172-792c1f90b59a?auto=format&fit=crop&w=1600&q=80');">
-        <div class="hero-3d p-12 md:p-24 text-center text-white mx-4 border border-white/20">
-            <h1 class="text-6xl md:text-8xl font-black mb-4 drop-shadow-xl">AHMAD AUTOS</h1>
-            <p class="text-xl md:text-3xl font-medium mb-10 opacity-90">Motorcycle Spare Parts Hub since 2018</p>
-            <a href="#parts" class="bg-white text-blue-900 px-10 py-4 rounded-full font-bold text-xl hover:bg-blue-50 transition shadow-2xl">
-                Explore Parts Inventory
-            </a>
+    <section class="relative h-[80vh] flex items-center justify-center bg-fixed bg-cover bg-center" 
+             style="background-image: url('https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1600&q=80');">
+        
+        <div class="hero-3d p-10 md:p-20 text-center text-white mx-4 max-w-4xl">
+            <span class="bg-red-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">Best Quality Parts</span>
+            <h1 class="text-5xl md:text-8xl font-black mb-4 drop-shadow-2xl italic uppercase">
+                HONDA <span class="text-blue-400">Gen-Parts</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-8 opacity-90">Specialized in Honda CD70, CG125 & All Motorbikes Spare Parts</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#parts" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-xl">Browse Parts</a>
+                <a href="#location" class="bg-white text-blue-900 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition shadow-xl border border-blue-200">Visit Shop</a>
+            </div>
         </div>
     </section>
 
-    <section id="parts" class="py-20 container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-16">Select Category for Details</h2>
+    <section id="parts" class="py-24 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-gray-800 uppercase tracking-tight">Main Inventory</h2>
+            <p class="text-gray-500">Click on any category to view current pricing</p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            
-            <div onclick="showDetails('engine')" class="part-card bg-white rounded-3xl shadow-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1590566107427-14457ff41871?auto=format&fit=crop&w=600&q=80" alt="Engine" class="h-64 w-full object-cover">
-                <div class="p-6 text-center">
-                    <h3 class="text-2xl font-bold text-blue-900">Engine Parts</h3>
-                    <p class="text-gray-500 mt-2">Pistons, Valves, Crankshafts</p>
+            <div onclick="showDetails('engine')" class="part-card bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1590566107427-14457ff41871?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
+                <div class="p-8 text-center bg-white">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-engine"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Engine Parts</h3>
                 </div>
             </div>
 
-            <div onclick="showDetails('electronics')" class="part-card bg-white rounded-3xl shadow-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1544131551-7f937d132626?auto=format&fit=crop&w=600&q=80" alt="Electronics" class="h-64 w-full object-cover">
-                <div class="p-6 text-center">
-                    <h3 class="text-2xl font-bold text-blue-900">Electronics</h3>
-                    <p class="text-gray-500 mt-2">CDIs, Headlights, Wiring Kits</p>
+            <div onclick="showDetails('electronics')" class="part-card bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
+                <div class="p-8 text-center bg-white">
+                    <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Electronics</h3>
                 </div>
             </div>
 
-            <div onclick="showDetails('maintenance')" class="part-card bg-white rounded-3xl shadow-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1579483321946-f9f31a2992f4?auto=format&fit=crop&w=600&q=80" alt="Maintenance" class="h-64 w-full object-cover">
-                <div class="p-6 text-center">
-                    <h3 class="text-2xl font-bold text-blue-900">Maintenance</h3>
-                    <p class="text-gray-500 mt-2">Lubricants, Filters, Brake Pads</p>
+            <div onclick="showDetails('maintenance')" class="part-card bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1579483321946-f9f31a2992f4?auto=format&fit=crop&w=600&q=80" class="h-60 w-full object-cover">
+                <div class="p-8 text-center bg-white">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-oil-can"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Maintenance</h3>
                 </div>
             </div>
         </div>
 
-        <div id="details-area" class="mt-20 p-10 bg-blue-50 rounded-3xl border-2 border-dashed border-blue-200 text-center">
-            <div id="default-msg" class="text-xl text-blue-400 font-medium">Click on a category to see price list and images</div>
+        <div id="details-box" class="mt-16 p-8 bg-white rounded-[40px] shadow-2xl border-2 border-blue-100 hidden-details">
+            <div id="engine-info" class="hidden-details">
+                <h2 class="text-3xl font-black mb-8 text-blue-900 border-b pb-4">Engine Components (Honda Spec)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Cylinder Kit 70cc</span> <span class="text-green-600">Rs. 3,500</span></div>
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Clutch Plates Set</span> <span class="text-green-600">Rs. 1,250</span></div>
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Connecting Rod</span> <span class="text-green-600">Rs. 1,800</span></div>
+                </div>
+            </div>
             
-            <div id="engine-details" class="hidden-details">
-                <h4 class="text-3xl font-bold mb-4 text-blue-900">Engine Parts List</h4>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="bg-white p-4 rounded-xl shadow w-64">
-                        <p class="font-bold">70cc Piston Kit</p>
-                        <p class="text-green-600 font-bold">Rs. 1,200/-</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow w-64">
-                        <p class="font-bold">Valve Set Genuine</p>
-                        <p class="text-green-600 font-bold">Rs. 850/-</p>
-                    </div>
+            <div id="electronics-info" class="hidden-details">
+                <h2 class="text-3xl font-black mb-8 text-blue-900 border-b pb-4">Electrical & Wiring</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Magnet Coil Set</span> <span class="text-green-600">Rs. 1,400</span></div>
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Indicator Set (4 Pcs)</span> <span class="text-green-600">Rs. 950</span></div>
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Wiring Harness Gen.</span> <span class="text-green-600">Rs. 1,100</span></div>
                 </div>
             </div>
 
-            <div id="electronics-details" class="hidden-details">
-                <h4 class="text-3xl font-bold mb-4 text-blue-900">Electrical Components</h4>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="bg-white p-4 rounded-xl shadow w-64">
-                        <p class="font-bold">LED Headlight Bulb</p>
-                        <p class="text-green-600 font-bold">Rs. 650/-</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow w-64">
-                        <p class="font-bold">Ignition CDI Unit</p>
-                        <p class="text-green-600 font-bold">Rs. 950/-</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="maintenance-details" class="hidden-details">
-                <h4 class="text-3xl font-bold mb-4 text-blue-900">Service & Oils</h4>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="bg-white p-4 rounded-xl shadow w-64">
-                        <p class="font-bold">Engine Oil (Premium)</p>
-                        <p class="text-green-600 font-bold">Rs. 1,100/-</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl shadow w-64">
-                        <p class="font-bold">Brake Shoe Set</p>
-                        <p class="text-green-600 font-bold">Rs. 450/-</p>
-                    </div>
+            <div id="maintenance-info" class="hidden-details">
+                <h2 class="text-3xl font-black mb-8 text-blue-900 border-b pb-4">Oils & Maintenance</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Engine Oil (Atlas Honda)</span> <span class="text-green-600">Rs. 1,350</span></div>
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Brake Shoe Rear</span> <span class="text-green-600">Rs. 550</span></div>
+                    <div class="flex justify-between p-4 bg-gray-50 rounded-xl font-bold"><span>Drive Chain Kit</span> <span class="text-green-600">Rs. 2,800</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="location" class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section id="location" class="py-20 bg-blue-900 text-white rounded-t-[50px]">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="text-4xl font-bold mb-6">Visit Our Warehouse</h2>
-                <p class="text-gray-400 mb-8 text-lg">Hamein Rawalpindi ki best motorcycle parts shop par visit karein ya WhatsApp par order karein.</p>
-                <div class="space-y-4">
-                    <p class="flex items-center text-xl font-bold"><i class="fa-solid fa-phone mr-4 text-blue-400"></i> +92 315 9598830</p>
-                    <p class="flex items-center"><i class="fa-solid fa-map-location-dot mr-4 text-blue-400"></i> Shop no 1, Ahmad Autos, Opposite Askari Bank, Quaid Avenue, High Ct Rd, Rawalpindi</p>
+                <h2 class="text-5xl font-black mb-6">Find Us In <span class="text-blue-400">Rawalpindi</span></h2>
+                <p class="text-xl text-blue-100 mb-10">High Court Road par sab se sasti aur behtareen motorcycle parts ki shop.</p>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-location-dot mt-1 mr-4 text-3xl text-red-500"></i>
+                        <p class="text-lg">Shop #1, Ahmad Autos, Opposite Askari Bank, Quaid Avenue, High Court Road, Rawalpindi</p>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-phone-volume mr-4 text-3xl text-green-400"></i>
+                        <p class="text-2xl font-mono">+92 315 9598830</p>
+                    </div>
                 </div>
-                <a href="https://maps.app.goo.gl/ChIJBUiwCgDt3zgRMdvKwI7Fuig" target="_blank" class="mt-8 inline-block bg-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-700">Open in Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Ahmad+Autos+High+Court+Road+Rawalpindi" target="_blank" class="mt-12 inline-block bg-white text-blue-900 px-8 py-4 rounded-2xl font-black hover:scale-105 transition shadow-2xl">Open GPS Navigation</a>
             </div>
-            <div class="h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-800">
-                <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.460835955681!2d73.1041088!3d33.5568752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfede00ab04805%3A0x28ba888ec0cadbc1!2sAhmad%20Autos%20Motorcycle%20Spare%20Parts%20and%20Service%20Center!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" loading="lazy"></iframe>
+            <div class="h-[400px] rounded-[40px] overflow-hidden border-8 border-blue-800 shadow-2xl">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.636666879!2d73.08866!3d33.5654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfdcd00ab0b005%3A0x28ba858ec2cad731!2sAhmad%20Autos!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
+                        class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-500">
-        <p>&copy; 2026 Ahmad Autos Pakistan. Delivering Quality Bike Parts.</p>
+    <footer class="py-10 text-center bg-gray-900 text-gray-500">
+        <p class="font-bold">© 2026 Ahmad Autos Pakistan - Genuine Parts Provider</p>
     </footer>
 
     <script>
-        function showDetails(type) {
-            document.getElementById('default-msg').classList.add('hidden-details');
-            document.getElementById('engine-details').className = 'hidden-details';
-            document.getElementById('electronics-details').className = 'hidden-details';
-            document.getElementById('maintenance-details').className = 'hidden-details';
+        function showDetails(category) {
+            const box = document.getElementById('details-box');
+            box.classList.remove('hidden-details');
+            box.classList.add('active-details');
+
+            // Hide all info
+            document.getElementById('engine-info').classList.add('hidden-details');
+            document.getElementById('electronics-info').classList.add('hidden-details');
+            document.getElementById('maintenance-info').classList.add('hidden-details');
+
+            // Show selected
+            document.getElementById(category + '-info').classList.remove('hidden-details');
             
-            document.getElementById(type + '-details').className = 'active-details';
-            document.getElementById('details-area').scrollIntoView({ behavior: 'smooth' });
+            // Scroll smoothly
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     </script>
 </body>

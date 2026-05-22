@@ -20,9 +20,16 @@
     <nav class="fixed w-full z-[100] bg-white/10 backdrop-blur-lg border-b border-white/10 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-brand text-red-600 italic red-glow">AHMAD AUTOS</h1>
-            <button onclick="toggleTheme()" class="bg-red-600 text-white px-4 py-2 rounded-xl font-bold uppercase text-[10px] tracking-widest hover:bg-red-700 transition">
-                Switch Theme
-            </button>
+            <div class="flex gap-2">
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/923159598830" class="bg-green-600 text-white px-4 py-2 rounded-xl font-bold uppercase text-[10px] tracking-widest hover:bg-green-700 transition">
+                    <i class="fab fa-whatsapp mr-1"></i> WhatsApp
+                </a>
+                <!-- Theme Toggle -->
+                <button onclick="toggleTheme()" class="bg-red-600 text-white px-4 py-2 rounded-xl font-bold uppercase text-[10px] tracking-widest hover:bg-red-700 transition">
+                    <i class="fas fa-adjust mr-1"></i> Mode
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -76,7 +83,6 @@
         <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             <div class="flex flex-col items-center md:items-start" data-aos="fade-right">
                 <div class="mb-8">
-                    <!-- Updated Image Link Here -->
                     <img src="https://i.ibb.co/4kVdQdY/In-Shot-20260522-180741598.jpg" alt="Ahmad Ali" class="owner-img">
                 </div>
                 <h4 class="text-4xl font-brand italic red-glow mb-2 uppercase">Ahmad Ali</h4>

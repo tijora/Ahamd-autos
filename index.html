@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmad Autos | Honda 70 Spare Parts</title>
-    
+
     <!-- Premium Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Three.js Library for 3D Background Effect -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -19,6 +19,8 @@
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: #080102;
@@ -86,6 +88,15 @@
             text-shadow: 0 0 10px rgba(255, 0, 43, 0.8);
         }
 
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
         /* Hero Container */
         .container {
             display: flex;
@@ -133,6 +144,7 @@
             font-size: 15px;
             margin-bottom: 30px;
             line-height: 1.7;
+            max-width: 520px;
         }
 
         /* 3D Owner Card Overlay */
@@ -169,12 +181,14 @@
             transform: translateZ(30px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #111;
         }
 
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .owner-details {
@@ -232,6 +246,7 @@
             border-radius: 10px;
             background: rgba(255, 0, 43, 0.2);
             color: #ff334b;
+            flex-shrink: 0;
         }
 
         .whatsapp-card i { color: #25D366; background: rgba(35, 211, 102, 0.15); }
@@ -299,6 +314,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            display: block;
         }
 
         .part-card:hover .part-img img {
@@ -341,11 +357,47 @@
 
         /* Footer */
         footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid rgba(255, 0, 43, 0.2);
-            color: #777777;
+            padding: 50px 8% 25px;
+            border-top: 1px solid rgba(255, 0, 43, 0.25);
+            background: rgba(10, 1, 2, 0.6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col .logo {
+            font-size: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #999999;
             font-size: 13px;
+            line-height: 1.9;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-col a:hover { color: #ff002b; }
+
+        .footer-col h4 {
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #666666;
+            font-size: 12px;
         }
 
         /* Responsive Design */
@@ -353,6 +405,33 @@
             .content-box h1 { font-size: 32px; }
             .section-title h2 { font-size: 28px; }
             .container { padding-top: 100px; }
+
+            .menu-toggle { display: block; }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(12, 2, 3, 0.97);
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-links.open {
+                max-height: 220px;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 14px 0;
+                border-top: 1px solid rgba(255, 0, 43, 0.15);
+            }
         }
     </style>
 </head>
@@ -364,7 +443,10 @@
     <!-- Navigation Header -->
     <nav>
         <div class="logo">AHMAD <span>AUTOS</span></div>
-        <ul class="nav-links">
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#parts">70 Bike Parts</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -373,16 +455,16 @@
 
     <!-- Main Hero Section -->
     <div class="container" id="home">
-        
+
         <!-- Store Information Side -->
         <div class="content-box">
             <span class="badge">HONDA 70 GENUINE PARTS</span>
             <h1>Welcome to <span>Ahmad Autos</span></h1>
             <p>Honda CD 70 bike ke tamam genuine spare parts wholesale aur retail qeemat par dastiyab hain. Direct WhatsApp order karein ya shop par visit karein.</p>
-            
+
             <div class="action-grid">
-                <!-- Real WhatsApp Link -->
-                <a href="https://wa.me/923159598830" target="_blank" class="action-card whatsapp-card">
+                <!-- WhatsApp Link -->
+                <a href="https://wa.me/923159598830" target="_blank" rel="noopener" class="action-card whatsapp-card">
                     <i class="fab fa-whatsapp"></i>
                     <div class="card-text">
                         <h4>WhatsApp Order</h4>
@@ -390,8 +472,8 @@
                     </div>
                 </a>
 
-                <!-- Real Location Link -->
-                <a href="https://share.google/lzUi3NUUgPZqxjUDk" target="_blank" class="action-card">
+                <!-- Location Link -->
+                <a href="https://share.google/lzUi3NUUgPZqxjUDk" target="_blank" rel="noopener" class="action-card">
                     <i class="fas fa-location-dot"></i>
                     <div class="card-text">
                         <h4>Shop Location</h4>
@@ -405,8 +487,7 @@
         <div class="card-wrapper">
             <div class="card-3d" id="tiltCard">
                 <div class="image-container">
-                    <!-- Owner Image Link Updated -->
-                    <img src="https://ibb.co/nq5ywwQp" alt="Ahmad Autos Owner">
+                    <img src="https://i.ibb.co/gbB8rrtY/IMG-20260522-WA0023.jpg" alt="Ahmad Autos Owner">
                 </div>
                 <div class="owner-details">
                     <h3>Ahmad Autos</h3>
@@ -428,81 +509,101 @@
             <!-- Item 1: Headlight Assembly -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" alt="Headlight Assembly 70">
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" alt="Headlight Assembly 70" loading="lazy">
                 </div>
                 <h3>CD 70 Headlight Assembly</h3>
                 <p>Rs. 1,250</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Headlight%20Assembly" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Headlight%20Assembly" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
             <!-- Item 2: Spark Plug -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Spark Plug 70">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Spark Plug 70" loading="lazy">
                 </div>
                 <h3>CD 70 Genuine Spark Plug</h3>
                 <p>Rs. 350</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Spark%20Plug" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Spark%20Plug" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
             <!-- Item 3: Chain Sprocket Kit -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" alt="Chain Sprocket Kit">
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" alt="Chain Sprocket Kit" loading="lazy">
                 </div>
                 <h3>CD 70 Chain Sprocket Kit</h3>
                 <p>Rs. 2,180</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Chain%20Sprocket" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Chain%20Sprocket" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
             <!-- Item 4: Engine Oil 1 Litre -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1635848648196-4ead8c3d57c7?auto=format&fit=crop&w=600&q=80" alt="Engine Oil 1L">
+                    <img src="https://images.unsplash.com/photo-1635848648196-4ead8c3d57c7?auto=format&fit=crop&w=600&q=80" alt="Engine Oil 1L" loading="lazy">
                 </div>
                 <h3>Honda 70 Engine Oil (1L)</h3>
                 <p>Rs. 1,220</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20Engine%20Oil%201L" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20Engine%20Oil%201L" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
             <!-- Item 5: Brake Shoe -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80" alt="Brake Shoe 70">
+                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80" alt="Brake Shoe 70" loading="lazy">
                 </div>
                 <h3>CD 70 Genuine Brake Shoe</h3>
                 <p>Rs. 620</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Brake%20Shoe" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Brake%20Shoe" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
             <!-- Item 6: Carburetor -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1597764690523-15bea4c581c9?auto=format&fit=crop&w=600&q=80" alt="Carburetor 70">
+                    <img src="https://images.unsplash.com/photo-1597764690523-15bea4c581c9?auto=format&fit=crop&w=600&q=80" alt="Carburetor 70" loading="lazy">
                 </div>
                 <h3>CD 70 Carburetor Assembly</h3>
                 <p>Rs. 3,550</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Carburetor" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Carburetor" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
             <!-- Item 7: Tire & Rim -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80" alt="Tire and Rim">
+                    <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80" alt="Tire and Rim" loading="lazy">
                 </div>
                 <h3>CD 70 Tire & Rim Set</h3>
                 <p>Rs. 6,500</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Tire%20and%20Rim" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Tire%20and%20Rim" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
             <!-- Item 8: Seat Assembly -->
             <div class="part-card">
                 <div class="part-img">
-                    <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=600&q=80" alt="Seat Assembly 70">
+                    <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=600&q=80" alt="Seat Assembly 70" loading="lazy">
                 </div>
                 <h3>CD 70 Comfort Seat Assembly</h3>
                 <p>Rs. 3,050</p>
-                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Seat%20Assembly" target="_blank" class="order-btn">Order on WhatsApp</a>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Seat%20Assembly" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
+            </div>
+
+            <!-- Item 9: Side Mirror -->
+            <div class="part-card">
+                <div class="part-img">
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" alt="Side Mirror Set 70" loading="lazy">
+                </div>
+                <h3>CD 70 Side Mirror Set</h3>
+                <p>Rs. 480</p>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Side%20Mirror" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
+            </div>
+
+            <!-- Item 10: Clutch Plate -->
+            <div class="part-card">
+                <div class="part-img">
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" alt="Clutch Plate Set 70" loading="lazy">
+                </div>
+                <h3>CD 70 Clutch Plate Set</h3>
+                <p>Rs. 1,050</p>
+                <a href="https://wa.me/923159598830?text=Ahmad%20Autos!%20I%20want%20to%20buy%20CD%2070%20Clutch%20Plate" target="_blank" rel="noopener" class="order-btn">Order on WhatsApp</a>
             </div>
 
         </div>
@@ -510,12 +611,45 @@
 
     <!-- Footer -->
     <footer id="contact">
-        <p>&copy; 2026 Ahmad Autos - Sargodha. All Rights Reserved.</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">AHMAD <span>AUTOS</span></div>
+                <p>Honda CD 70 ke tamam genuine spare parts wholesale aur retail rate par. Bharosemand quality, seedha shop se.</p>
+            </div>
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <a href="#home">Home</a>
+                <a href="#parts">70 Bike Parts</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <a href="https://wa.me/923159598830" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i> +92 315 9598830
+                </a>
+                <a href="https://share.google/lzUi3NUUgPZqxjUDk" target="_blank" rel="noopener">
+                    <i class="fas fa-location-dot"></i> Pahadiyan Wali Gali, Sargodha
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ahmad Autos - Sargodha. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <!-- 3D Overlay & Animation Scripts -->
+    <!-- Scripts -->
     <script>
-        // 3D Tilt Card Interaction
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // 3D Tilt Card Interaction (desktop only)
         const card = document.getElementById('tiltCard');
         const container = document.querySelector('.card-wrapper');
 
@@ -531,61 +665,63 @@
         });
 
         // 3D Background Particles Animation (Three.js)
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), alpha: true });
-        
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
+        const canvas = document.getElementById('bg-canvas');
+        let scene, camera, renderer, particlesMesh;
+        let mouseX = 0, mouseY = 0;
 
-        const particlesGeometry = new THREE.BufferGeometry();
-        const count = 750;
-        const positions = new Float32Array(count * 3);
+        if (window.THREE) {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
 
-        for(let i = 0; i < count * 3; i++) {
-            positions[i] = (Math.random() - 0.5) * 15;
-        }
-
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.035,
-            color: 0xff002b,
-            transparent: true,
-            opacity: 0.7
-        });
-
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particlesMesh);
-
-        camera.position.z = 3;
-
-        let mouseX = 0;
-        let mouseY = 0;
-
-        document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth - 0.5) * 0.4;
-            mouseY = (event.clientY / window.innerHeight - 0.5) * 0.4;
-        });
-
-        function animate() {
-            requestAnimationFrame(animate);
-            particlesMesh.rotation.y += 0.0012;
-            particlesMesh.rotation.x += 0.0006;
-
-            camera.position.x += (mouseX - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY - camera.position.y) * 0.05;
-
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const particlesGeometry = new THREE.BufferGeometry();
+            const count = 750;
+            const positions = new Float32Array(count * 3);
+
+            for (let i = 0; i < count * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 15;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.035,
+                color: 0xff002b,
+                transparent: true,
+                opacity: 0.7
+            });
+
+            particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            camera.position.z = 3;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth - 0.5) * 0.4;
+                mouseY = (event.clientY / window.innerHeight - 0.5) * 0.4;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particlesMesh.rotation.y += 0.0012;
+                particlesMesh.rotation.x += 0.0006;
+
+                camera.position.x += (mouseX - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY - camera.position.y) * 0.05;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
     </script>
 </body>
 </html>
-
